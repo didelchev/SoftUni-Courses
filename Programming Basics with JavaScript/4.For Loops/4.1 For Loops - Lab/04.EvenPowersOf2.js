@@ -7,4 +7,4 @@ function evenPowerOf2(params) {
     }
   }
 }
-evenPowerOf2("3");
+evenPowerOf2("");

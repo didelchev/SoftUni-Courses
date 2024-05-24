@@ -1,0 +1,15 @@
+.icons{
+    width: 60px;
+    aspect-ratio: 1/1;
+    background: grey;
+    border-radius: 60px;
+    margin: 0.5em;
+    display: inline-block;
+}
+
+.icons i {
+    display: block;
+    align-content: center;
+    text-align: center;
+    margin: 1.3em;
+}

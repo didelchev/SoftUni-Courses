@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: sans-serif;
+}
+
+section{
+    min-height: max(30vh, 500px);
+    background-image: url("./images/image1.jpg");
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.text{
+    font-size: 24px;
+    position: absolute;
+    color: white;
+    font-weight: 100;
+    top: 40%;
+    left: 30%;
+}
+
+.text-header{
+    font-size: 32px;
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    margin-bottom: 0;
+}

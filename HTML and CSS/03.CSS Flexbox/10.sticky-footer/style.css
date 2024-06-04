@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    gap: 1em;
+    padding: 0.5em;
+}
+
+
+header,main,footer{
+    border: 2px solid blue;
+    padding: 2em;
+   
+
+}
+
+main{
+    flex-grow: 6;
+}

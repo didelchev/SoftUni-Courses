@@ -1,0 +1,93 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #eee;
+    padding: 2em;
+    font: 14px/1.5 Verdana,sans-serif;
+}
+
+.site-container{
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    
+
+}
+
+.site-header{
+    margin-bottom: 1em;
+}
+
+.site-header,
+.site-footer{
+    flex:1 0 100%;
+    margin-top: 1em;
+    
+}
+
+.site-content{
+    flex:1 1 600px;
+    margin-left: 2em;
+    margin-right: 1em;
+}
+
+.site-sitebar{
+    flex:1 0 250px;
+    margin-right: 1em;
+    margin-left:2em;
+}   
+.site-header h1 {
+    color: green;
+    padding: 1.5rem;
+}
+.site-header nav{
+    background-color: #333;
+    color: #ccc;
+}
+
+.site-header ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+}
+
+.site-header nav li{
+    display: block;
+    list-style-type: none;
+    flex: 1 1 auto;
+}
+
+.site-header nav a{
+    display: block;
+    padding: 1.5em;
+    color: white;
+    text-decoration: none;
+}
+
+.site-header nav a:hover{
+    background-color: orange;
+}
+
+.site-footer{
+    background-color: #333;
+    text-align: center;
+    color: white;
+    padding: 1em;
+    margin-top: 1em
+}
+
+@media (min-width: 600px){
+    .site-header nav ul{
+        flex-direction: row;
+        }
+    
+}

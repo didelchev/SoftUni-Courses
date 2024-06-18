@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    min-height: 100vh;
+    padding: 3em 2em;
+    font: 14px/1.5 "PT Sans", sans-serif;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .card{
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em rgb(0, 0, 0,0.1);
+    padding: 1em;
+  }
+
+.card img{
+    width: 100%;
+}

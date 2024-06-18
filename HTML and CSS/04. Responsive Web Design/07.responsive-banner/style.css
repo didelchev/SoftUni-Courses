@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font: 14px/1.5 Verdana,sans-serif;
+    background-color: #eee;
+    padding: 2em;
+}
+
+.container{
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    margin: 4em  auto;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+}
+
+.main-content{
+    flex:0  1 60%;
+}
+
+button{
+    padding: 0.5em;
+    
+    margin-top: 1em;
+}
+
+.colorful-btn{
+    background-color: rgb(75, 41, 75);
+    color: white;
+    border-style: none;
+    border-radius: 0.3em;
+    margin-right: 1em;
+}
+
+.image{
+    flex:1 0;
+    background-color: #eee;
+    border-radius: 0.3em;
+    margin-left: 1em;
+
+}

@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font: 14px/1.5 Verdana,sans-serif;
+}
+
+body, input, select, button {
+    font: inherit;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    background-color: #eee;
+}
+
+.container{
+    display: flex;
+    flex: 0 0 30em;
+    background-color: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    padding: 2em;
+}
+
+.container fieldset{
+    display: block;
+    border: none;
+}
+.container legend{
+    font-size: 1.7em;
+    border-bottom: 2px solid lightgrey;
+    margin-bottom: 1em;
+    padding: 1em 0em 1em 0;
+}
+
+.container .field{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5em;;
+    position: relative;
+
+}
+
+.container input{
+    display: block;
+    padding: 1em;
+    border: 2px solid grey;
+    border-radius: 0.3em;
+}
+
+.container .field label{
+    order: -1;
+    font-weight: bold;
+
+}
+.container .field span{
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.container input[type='button']{
+    display: block;
+    width: 100%;
+    border-style: none;
+    background-color: rgba(255, 85, 0, 0.808);
+    color: white;
+}
+
+.container .field label::before{
+    position: absolute;
+    top:0;
+    right: 0;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+.container .field input[type='email'] ~ label::before{
+    font: var(--fa-font-solid); 
+    content: "\f0e0";  
+    font-size:1.3em
+
+}
+
+.container .field input[type='password'] ~ label::before{
+    font: var(--fa-font-solid); 
+    content: "\f084";
+    font-size:1.3em
+}

@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Verdana, sans-serif;
+  }
+
+  body{
+    padding: 2em;
+    height: 100vh;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    background-color: #fff;
+    padding: 1.5em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    flex: 0 1 900px;
+  }
+
+  input{
+    display: block;
+    width: 100%;
+    padding: 1em;
+    border-radius: 0.3em;
+    border-style: none;
+    background-color: #eee
+  }
+
+  
+  input[type='text']{
+    flex: 1 0 15ch;
+  }
+
+
+  input[type='email']{
+    flex: 2 0 40ch;
+    
+  }
+
+
+  input[type='button']{
+    flex: 1 0 15ch;
+    background-color: rgb(255, 136, 0);
+    color: white;
+  }

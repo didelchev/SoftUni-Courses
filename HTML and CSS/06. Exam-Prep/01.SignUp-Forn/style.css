@@ -1,0 +1,103 @@
+@import url(typography.css);
+@import url(reset.css);
+
+
+body{
+    background-color: #c1bdba;
+    height: 100vh;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container{
+    flex:0 0 500px;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    background-color: #24333c;
+    padding: 2em;
+}
+
+
+.buttons{
+    display: flex;
+    
+}
+
+.buttons input{
+    padding: 1em;
+    flex: 1 0;
+    border-radius: 0;
+    border: hidden;
+}
+
+.buttons .sign-up{
+    background-color: #1ab188;
+    color: white;
+}
+
+    .buttons .login{
+    background-color: #435359;
+    color: #96b3b8;
+}
+.container  h1{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    margin: 1em 0;
+}
+
+.container .fields{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6em;
+}
+
+
+.container .fields input{
+    display: block;
+    width: 100%;
+    padding: 0.25em;
+    padding-left: 0.5em;
+    background-color: #24333c;
+    color: white;
+    border: 1px solid #6a7c7e;
+    outline: unset;
+    
+}
+
+
+.container .fields input[type='text']{
+    flex:1 0 150px;
+}
+
+
+.container .get-started{
+    display: block;
+    width:100%;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.5em 0;
+    margin-top: 2em;
+    border-radius: 0;
+    border: hidden;
+    background-color: #1ab188;
+    color: white;
+    text-align: center; 
+
+}
+
+.container  .buttons .login:hover{
+background-color: #179a77;
+color: white;
+}
+
+.container .get-started:hover{
+    background-color:#179a77 ;
+}
+.container .get-started:active{
+    background-color:#1ab188 ;
+}
+

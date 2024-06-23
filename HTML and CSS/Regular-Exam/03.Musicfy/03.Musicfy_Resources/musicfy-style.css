@@ -1,0 +1,222 @@
+@import url(typography.css);
+
+*{
+    padding: 0 ;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    min-height: 100vh;
+    
+}
+
+.header-nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    background-color: black;
+
+}
+
+.header-nav a img{
+    display: block;
+    width: 7%;
+}
+.navbar{
+    display: flex;
+    gap: 2em;
+    
+}
+
+.header-nav .navbar a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.main-content{
+    position: relative;
+}
+.plans-topside{
+    background-color: #1db954;
+    text-align: center;
+    height: 200px;
+    color: white;
+    padding-top: 2em;
+    
+}
+
+.subscription-wrapper{
+    display: flex;
+    padding: 0 5em;
+    gap: 10em;
+    position: absolute;
+    top: 70px;
+    left: 520px;
+    z-index: 1;
+    
+}
+.subscription-plans{
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.7em;
+    border:1px solid black;
+    width: 300px;
+    background-color: white;
+    overflow: hidden;
+ 
+}
+
+.plans-topside {
+    position: relative;
+}
+.plans-topside ::before{
+    position: absolute;
+    content: url(/images/music.png);
+    top: -6em;
+    left: 6em ;
+    transform: scale(0.6);
+}
+
+.subscription-plans h4{
+    text-align: center;
+    margin-top: 1em;
+}
+.subscription-plans ul {
+    padding: 2em;
+}
+
+.subscription-plans .free-trial{
+    display: block;
+    width: 70%;
+    margin: 1em auto;
+    padding: 0.4em;
+    border:none;
+    background-color: #1db954;
+    border-radius: 5em;
+    color:white;
+    font-weight: bold;
+}
+
+.subscription-plans .subscription-prices{
+    display: flex;
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    padding:0;
+    justify-content: center;
+    flex-wrap: wrap;
+   
+}
+
+.subscription-plans .subscription-prices p{
+    padding: 1em;
+}
+
+
+
+
+
+.plans-description{
+    position: absolute;
+    top: 500px;
+    display: flex;
+    width: 100%;
+    justify-content:space-evenly;
+    padding-left:3em ;
+    padding-right:5em ;
+    
+}
+
+.plans-description .plans-text ol li {
+    padding: 0.5em
+}
+.plans-description .plans-text{
+    width: 40%;
+}
+
+.plans-description img{
+    display: block;
+    width: 20%;
+}
+
+
+.plans-table{
+    position: absolute;
+    top: 800px;
+    left: 485px;
+    display: flex;
+	width: 50%;
+    flex-direction: column;
+    text-align: center;
+
+    
+}
+
+table {
+	table-layout: fixed;
+	margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+	border: 1px solid #CCC;
+	border-spacing: 0;
+	border-collapse: collapse;
+    
+    
+}
+
+table td {
+	border: 1px solid #CCC;
+	padding: 0.3rem 0.5rem;
+    text-align: left;
+}
+
+
+
+table tr:nth-child(odd) td {
+	background: #cccbcb;
+    position: relative;
+}
+table tr:nth-child(even) td {
+    background: #81d8a0;
+    position: relative;
+}
+
+table  td::before{
+    position: absolute;
+    content: url(/images/check.svg);
+    top:0.4em;
+    right:12em;
+}
+
+table tr:nth-child(odd) td::after {
+    content: url(/images/cross.svg);
+    position: absolute;
+    top: 0.5em;
+    right:3em   
+}
+table tr:nth-child(even) td::after {
+    content: url(/images/cross.svg);
+    position: absolute;
+    top: 0.4em;
+    right:3em   
+}
+
+
+
+.footer{
+    position: absolute;
+    top: 1200px;
+    display: block;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}

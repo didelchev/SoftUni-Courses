@@ -1,14 +1,77 @@
 @import url(typography.css);
 
 *{
+<<<<<<< HEAD
     padding:0;
+=======
+    padding: 0 ;
+>>>>>>> ba8f77dbdf5b890ae1cb41894eb3fcd9710a1572
     margin: 0;
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 body{
     padding: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
+=======
+
+
+body{
+    min-height: 100vh;
+    
+}
+.header{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/images/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3em 10em;
+
+}
+
+.navbar{
+    display: flex;
+    gap: 2em;
+    
+}
+
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.header-text{
+    flex: 0 0 800px;
+    text-align: center;
+    font-weight: bold;
+
+}
+.header-text .more-info{
+    padding: 0.8em 1em;
+    margin-top: 1em;
+    border: none;
+    border-radius: 0.3em;
+    box-shadow: 0  0 1em rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    color: grey;
+    background-color: #fff;
+>>>>>>> ba8f77dbdf5b890ae1cb41894eb3fcd9710a1572
 }

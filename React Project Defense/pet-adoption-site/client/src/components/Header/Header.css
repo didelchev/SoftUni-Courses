@@ -1,0 +1,30 @@
+
+.header-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    margin-left: 4em ;
+    margin-top: 6.5em;
+    font-size: 1.5rem
+}
+.header .header-content .btn-container{
+    display: flex;
+    margin-top: 1em;
+    gap:  2em;
+}
+
+
+.header .header-content .btn-container button{
+    padding: 2em;
+    border-radius: 0.3em;
+    border-style:none;
+    background-color: #116c31;
+    color: white;
+}
+
+.header .header-content .btn-container button:nth-child(2){
+    background-color: #1db954
+
+}

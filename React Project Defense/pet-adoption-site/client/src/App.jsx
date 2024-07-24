@@ -8,6 +8,8 @@ import PetDetails from './pages/PetDetails/PetDetails'
 import Dashboard from './pages/Dashboard/Dashboard'
 import PostPet from './pages/PostPet/PostPet'
 import EditPet from './pages/EditPet/EditPet'
+import PetCatalog from './pages/PetCatalog/PetCatalog'
+import Header from './components/Header/Header'
 
 
 const App = () => {
@@ -18,6 +20,7 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/petcatalog' element={<PetCatalog/>}/>
         <Route path='/pet/:id' element={<PetDetails/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/post-pet' element={<PostPet/>}/>

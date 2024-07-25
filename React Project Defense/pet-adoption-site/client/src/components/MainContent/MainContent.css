@@ -1,0 +1,27 @@
+.main-content{
+    height: 100vh;
+    margin-top: 2em;
+}
+
+.register-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #106a2e;
+    color: #fff;
+    padding: 3em;
+    padding-left: 20em;
+    padding-right: 20em;
+}
+
+.register-section .button button{
+    padding: 1.7em 5em;
+    border-radius: 0.4em;
+    border-style: none;
+    background-color: #1db750;
+}
+
+.register-section .button button a{
+    color: white;
+    font-size: 1.3em;
+}

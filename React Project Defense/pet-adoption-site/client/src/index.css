@@ -7,10 +7,12 @@
 }
 
 body{
-  min-height: 100vh;
-  font: 16px/1.5 "Poppins", 'sans-seriff' ;
-  background-image: url(/public/home-background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 100vh;
+    font: 16px/1.5 "Poppins", 'sans-seriff' ;
+    
+}
+
+a{
+  text-decoration: none;
+  
 }

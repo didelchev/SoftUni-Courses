@@ -7,7 +7,7 @@ import './Home.css'
 export default function Home() {
   return (
     <div className='home'>
-      <Header />
+      <Header/>
       <MainContent />
       <Footer />
     </div>

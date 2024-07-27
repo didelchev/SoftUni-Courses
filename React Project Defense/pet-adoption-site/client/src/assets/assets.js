@@ -4,6 +4,9 @@ import home from './images/home-icon.png'
 import hearts from './images/hearts-icon.png'
 import stars from './images/stars-icon.png';
 import hands from './images/hands-icon.png';
+import bugi from './images/bugi.jpg'
+import mima from './images/mima.jpg'
+import plamen from './images/plamen.png'
 
 
 export const assets = {
@@ -12,5 +15,8 @@ export const assets = {
     home,
     hearts,
     stars,
-    hands
+    hands,
+    plamen,
+    mima,
+    bugi
 }

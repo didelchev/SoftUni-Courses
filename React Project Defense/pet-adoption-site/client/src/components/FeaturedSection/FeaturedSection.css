@@ -1,0 +1,43 @@
+.featured-section{
+    text-align: center;
+    background-color: #eeeeee;
+    padding: 2em;
+}
+
+.featured-container{
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    gap: 3em    ;
+}
+.featured-pet{
+    width: 400px;
+    border-radius: 0.7em;
+    overflow: hidden;
+    padding: 0.7em;
+    /* box-shadow: 0 0 1em rgba(0, 0, 0, 0.1); */
+    text-align: left;
+    transition: all .3s ease;
+    background-color: #fff;
+    
+
+}
+
+.featured-pet .thumbnail-img img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 0.5em;
+    /* object-fit:cover; */
+    
+}
+
+.featured-pet .pet-details{
+    padding: 1em;
+}
+
+.featured-pet:hover{
+    cursor: pointer;
+    box-shadow: 0 0 50px 0 rgba(19,19,28,.12);
+
+}

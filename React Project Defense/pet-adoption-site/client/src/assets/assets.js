@@ -7,6 +7,7 @@ import hands from './images/hands-icon.png';
 import bugi from './images/bugi.jpg'
 import mima from './images/mima.jpg'
 import plamen from './images/plamen.png'
+import login from './images/login-page.jpg'
 
 
 export const assets = {
@@ -18,5 +19,6 @@ export const assets = {
     hands,
     plamen,
     mima,
-    bugi
+    bugi,
+    login
 }

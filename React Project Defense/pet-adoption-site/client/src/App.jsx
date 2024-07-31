@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import Navbar from './components/Navbar/Navbar'
 import { Route, Routes} from 'react-router-dom'
 import Home from './pages/Home/Home'

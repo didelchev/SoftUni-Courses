@@ -1,0 +1,36 @@
+.card-container{
+    display: block;
+    width: 280px;
+    height: 290px;
+    margin: 20em 20em;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+}
+
+.card-container img{
+    display: block;
+    border-radius: 0.5em;
+    overflow: hidden;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+
+.pet-details{
+    padding: 0.7em;
+}
+.pet-details h3 {
+    margin: 0 0 10px 0;
+  }
+
+.pet-details p {
+    margin: 5px 0;
+  }
+
+  .pet-details > p:last-child span {
+    margin-right: 5px;
+  }
+
+  

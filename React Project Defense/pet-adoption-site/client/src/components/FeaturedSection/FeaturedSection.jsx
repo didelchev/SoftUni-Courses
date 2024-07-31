@@ -23,7 +23,7 @@ export default function FeaturedSection() {
         </div>
         <div className="featured-pet">
           <div className="thumbnail-img">
-            <img src={assets.bugi} />
+            <img src={assets.mima} />
           </div>
           <div className="pet-details">
             <h3>Mima</h3>
@@ -34,14 +34,14 @@ export default function FeaturedSection() {
         </div>
         <div className="featured-pet">
           <div className="thumbnail-img">
-            <img src={assets.bugi} />
+            <img src={assets.plamen} />
           </div>
           <div className="pet-details">
             <h3>Plamen</h3>
             <p>Mixed Breed</p>
             <p>5 years</p>
             <p>Sofia</p>
-          </div>
+          </div>  
         </div>
       </div>
     </div>

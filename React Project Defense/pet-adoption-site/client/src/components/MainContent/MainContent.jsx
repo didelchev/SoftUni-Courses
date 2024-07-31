@@ -1,6 +1,8 @@
 import React from "react";
 import "./MainContent.css";
 import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
+
 
 export default function MainContent() {
   return (
@@ -12,10 +14,10 @@ export default function MainContent() {
             Create your free account, and get ready to connect safely with
             thousands of adopters and pet rehomers
           </p>
-        </div>
+        </div>  
         <div className="button">
           <button>
-            <a href="">Register</a>
+            <Link to='/register'>Register</Link>
           </button>
         </div>
       </div>

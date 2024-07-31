@@ -1,13 +1,11 @@
 import React from 'react'
 import './PetCatalog.css'
+import PetCard from '../../components/PetCard/PetCard'
 
-//This is the Catalog page, that would display the list of all available pets for adoption
-
-export default function FindPet() {
+export default function PetCatalog() {
   return (
-    <div>
-      <h1>This is the PetCatalog page</h1>
-      
+    <div className='catalog-page'>
+      <PetCard name= "Bugi" age={3} location="Sofia"/>
     </div>
   )
 }

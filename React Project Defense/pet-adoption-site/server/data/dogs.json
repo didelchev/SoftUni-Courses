@@ -1,0 +1,98 @@
+{
+    "da7d2681-87c2-46d0-b8a0-c7e0fcde6a96": {
+        "name": "Molly",
+        "imageUrl": "https://cdn2.thedogapi.com/images/rVXxoWhCR.jpg",
+        "age": "3",
+        "breed": "Border Collie",
+        "location": "Plovdiv",
+        "_id": "da7d2681-87c2-46d0-b8a0-c7e0fcde6a96"
+    },
+    "813f7f3e-5404-4375-86d6-ea994bbebd98": {
+        "name": "Tucker",
+        "imageUrl": "https://cdn2.thedogapi.com/images/HJ7Pzg5EQ_1280.jpg",
+        "age": "2",
+        "breed": "Golden Retriever",
+        "location": "Sofia",
+        "_id": "813f7f3e-5404-4375-86d6-ea994bbebd98"
+    },
+    "be9df90a-9492-40ba-a791-e4446c1d2314": {
+        "name": "Max",
+        "imageUrl": "https://cdn2.thedogapi.com/images/qwqPTppkA.jpg",
+        "age": "4",
+        "breed": "Shiba Inu",
+        "location": "Varna",
+        "_id": "be9df90a-9492-40ba-a791-e4446c1d2314"
+    },
+    "f044b5a7-7f8c-462c-888a-c100cb665729": {
+        "name": "Charlie",
+        "imageUrl": "https://cdn2.thedogapi.com/images/36h5QYitP.jpg",
+        "age": "5",
+        "breed": "Saint Bernard",
+        "location": "Ruse",
+        "_id": "f044b5a7-7f8c-462c-888a-c100cb665729"
+    },
+    "ccb9251b-fdb1-49cb-92f9-4b775122467d": {
+        "name": "Oscar",
+        "imageUrl": "https://cdn2.thedogapi.com/images/VWhafa0Av.jpg",
+        "age": "2",
+        "breed": "Bull Terrier",
+        "location": "Dobrich",
+        "_id": "ccb9251b-fdb1-49cb-92f9-4b775122467d"
+    },
+    "4a447f24-e1c8-4854-8323-b9e29db3b7c2": {
+        "name": "Lola",
+        "imageUrl": "https://cdn2.thedogapi.com/images/5TW4CCc9c.jpg",
+        "age": "1",
+        "breed": "Cocker Spaniel",
+        "location": "Burgas",
+        "_id": "4a447f24-e1c8-4854-8323-b9e29db3b7c2"
+    },
+    "f56ef517-4d02-4669-80b0-e8f6fbd5cd25": {
+        "name": "Buddy",
+        "imageUrl": "https://cdn2.thedogapi.com/images/By-hGecVX_1280.jpg",
+        "age": "3",
+        "breed": "Irish Terrier",
+        "location": "Vidin",
+        "_id": "f56ef517-4d02-4669-80b0-e8f6fbd5cd25"
+    },
+    "fd168555-4415-42d0-9962-a442b0541230": {
+        "name": "Rocky",
+        "imageUrl": "https://cdn2.thedogapi.com/images/HyL3bl94Q_1280.jpg",
+        "age": "2",
+        "breed": "Doberman Pinscher",
+        "location": "Sliven",
+        "_id": "fd168555-4415-42d0-9962-a442b0541230"
+    },
+    "9d5f0b51-506e-4dc4-ac30-f50df6a3b3f8": {
+        "name": "Rex",
+        "imageUrl": "https://cdn2.thedogapi.com/images/r15m-lc4m_1280.jpg",
+        "age": "5",
+        "breed": "Cane Corso",
+        "location": "Veliko Turnovo",
+        "_id": "9d5f0b51-506e-4dc4-ac30-f50df6a3b3f8"
+    },
+    "fab2602e-c021-4a73-8e14-5eec79d979a7": {
+        "name": "Toby",
+        "imageUrl": "https://cdn2.thedogapi.com/images/S1fFlx5Em_1280.jpg",
+        "age": "2",
+        "breed": "Bernese Mountain Dog",
+        "location": "Stara Zagora",
+        "_id": "fab2602e-c021-4a73-8e14-5eec79d979a7"
+    },
+    "5bee5e78-cb6a-48e9-867b-6ff4e9c7fd1e": {
+        "name": "Duke",
+        "imageUrl": "https://cdn2.thedogapi.com/images/B1ruWl94Q_1280.jpg",
+        "age": "3",
+        "breed": "Shar Pei",
+        "location": "Sofia",
+        "_id": "5bee5e78-cb6a-48e9-867b-6ff4e9c7fd1e"
+    },
+    "afeab8a4-aa05-47d6-a76e-f5ba52fec3d8": {
+        "name": "Jack",
+        "imageUrl": "https://cdn2.thedogapi.com/images/COXQowStQ.jpg",
+        "age": "2",
+        "breed": "Pitbull Terrier",
+        "location": "Plovdiv",
+        "_id": "afeab8a4-aa05-47d6-a76e-f5ba52fec3d8"
+    }
+}

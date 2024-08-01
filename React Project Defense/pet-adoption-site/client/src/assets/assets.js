@@ -8,6 +8,7 @@ import bugi from './images/bugi.jpg'
 import mima from './images/mima.jpg'
 import plamen from './images/plamen.png'
 import login from './images/login-page.jpg'
+import bugiNova from './images/bugi1.jpg'
 
 
 export const assets = {
@@ -20,5 +21,6 @@ export const assets = {
     plamen,
     mima,
     bugi,
-    login
+    login,
+    bugiNova
 }

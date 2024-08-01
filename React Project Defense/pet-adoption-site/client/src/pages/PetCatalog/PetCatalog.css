@@ -1,3 +1,25 @@
 html{
     background-color: #fafcff;
 }
+
+.catalog-page{
+    padding: 3em;
+    margin-top: 5em;
+    display:  grid;
+    grid-template-columns: 320px 320px 320px;
+    grid-template-rows: 1fr;
+    column-gap: 40px;
+    row-gap: 30px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card-container{
+    display: block;
+    width: 300px;
+    height: 350px;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+}

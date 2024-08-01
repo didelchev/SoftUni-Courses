@@ -8,10 +8,11 @@ import './PetCard.css'
 export default function PetCard(pet) {
   return (
     <div className='card-container'>
-        <img src={assets.bugiNova} alt="" />
+        <img src={pet.img} alt={pet.name} />
         <div className="pet-details">
             <h3>{pet.name}</h3>
             <p>Age: {pet.age}</p>
+            <p>Breed: {pet.breed}</p>
             <p><span><FontAwesomeIcon icon={faLocationDot}/></span>Location: {pet.location}</p>
         </div>
     </div>

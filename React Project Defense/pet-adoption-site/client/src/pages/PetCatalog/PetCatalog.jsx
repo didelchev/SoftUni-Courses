@@ -8,13 +8,12 @@ import { Link } from 'react-router-dom'
 import * as request from "../../api/requester";
 import * as dogsAPI from '../../api/dogs-api'
 
+import {useGetAllDogs} from '../../hooks/useDogs';
 
 
-
-
-export default function PetCatalog() {
-  const [dogs, setDogs] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+export default function PetCatalog() {  
+  const [dogs, setDogs] = useGetAllDogs()
+  // const [isLoading, setIsLoading] = useState(false);
 
 
   // useEffect(() => {
@@ -38,17 +37,17 @@ export default function PetCatalog() {
   // })
   // },[])
 
-  useEffect(() => {
-    const getDogs = async () => {
-      const dogsData = await dogsAPI.getAll()
-      setDogs(dogsData)
-    }
-    getDogs()
-  },[])
+  // useEffect(() => {
+  //   const getDogs = async () => {
+  //     const dogsData = await dogsAPI.getAll()
+  //     setDogs(dogsData)
+  //   }
+  //   getDogs()
+  // },[])
 
   return (
     <>
-    {isLoading ?  <Loading/> : 
+    {!dogs ?  <Loading/> : 
     <>
       <div className="catalog-page">
         {dogs.map((dog) => (

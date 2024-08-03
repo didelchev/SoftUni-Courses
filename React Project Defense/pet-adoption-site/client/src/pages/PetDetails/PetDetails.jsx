@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import dogsAPI from "../../api/dogs-api"
+import { useGetOneDogs } from '../../hooks/useDogs';
 
 import './PetDetails.css'
 import SinglePetDetails from '../../components/SinglePetDetails/SinglePetDetails';
@@ -8,8 +9,8 @@ import Footer from '../../components/Footer/Footer';
 
 
 export default function PetDetails() {
-  const [dog, setDog] = useState({});
   const { id } = useParams();
+  const [dog, setDog] = useGetOneDogs(id)
 
   // useEffect(() => {
   //   const getDogs = async () =>{
@@ -22,13 +23,13 @@ export default function PetDetails() {
   //   getDogs()
   // }, [id])
 
-  useEffect (() => {
-    const getDog = async () => {
-      const result =  await dogsAPI.getOne(id)
-      setDog(result)
-    }
-    getDog()
-  },[id])
+  // useEffect (() => {
+  //   const getDog = async () => {
+  //     const result =  await dogsAPI.getOne(id)
+  //     setDog(result)
+  //   }
+  //   getDog()
+  // },[id])
 
 
   return (

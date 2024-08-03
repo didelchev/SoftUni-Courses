@@ -22,6 +22,8 @@
 }
 .pet-details h3 {
     margin: 0 0 3px 0;
+    color: #1db750;
+    font-weight: 500;
   }
 
 .pet-details p {

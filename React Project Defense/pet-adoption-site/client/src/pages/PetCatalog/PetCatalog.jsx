@@ -35,7 +35,7 @@ export default function PetCatalog() {
     <>
       <div className="catalog-page">
         {dogs.map((dog) => (
-          <Link to={`/${dog.name}`} key ={dog._id} >
+          <Link to={`/petcatalog/${dog._id}`} key ={dog._id} >
           <PetCard 
           img = {dog.imageUrl}
           name = {dog.name}

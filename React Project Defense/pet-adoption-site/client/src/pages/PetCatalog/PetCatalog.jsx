@@ -29,14 +29,21 @@ export default function PetCatalog() {
   //   getDogs()
   // }, []);
 
-  useEffect(() => {
-    setIsLoading(true)
-    dogsAPI.getAll()
-      .then(result => {
-        setDogs(result)
-        setIsLoading(false)
-  })
+  // useEffect(() => {
+  //   setIsLoading(true)
+  //   dogsAPI.getAll()
+  //     .then(result => {
+  //       setDogs(result)
+  //       setIsLoading(false)
+  // })
+  // },[])
 
+  useEffect(() => {
+    const getDogs = async () => {
+      const dogsData = await dogsAPI.getAll()
+      setDogs(dogsData)
+    }
+    getDogs()
   },[])
 
   return (

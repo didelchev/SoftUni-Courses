@@ -56,3 +56,12 @@
     font-size: 1.2em;
     
 }
+
+.navbar .navbar-menu .user{
+  display: flex;
+  gap: 2em;
+}
+.navbar .navbar-menu .guest{
+  display: flex;
+  gap: 2em;
+}

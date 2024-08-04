@@ -8,3 +8,10 @@ export const login = async (email, password) => {
 
     return authData
 }
+
+
+export const register = async (username,email,password) => {
+  const authData =  await request.post(`${BASE_URL}/login`, {username,email,password})
+
+  return authData
+}

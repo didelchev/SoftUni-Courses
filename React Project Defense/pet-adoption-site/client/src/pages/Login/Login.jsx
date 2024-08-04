@@ -6,20 +6,24 @@ import { login } from "../../api/auth-api";
 import { useLogin } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
+const initialValues = { email: "", password: "" };
 
-    const login = useLogin();
-    const navigate = useNavigate()
-    const { values, changeHandler, submitHandler } = useForm(
-    { email: "", password: "" },
-        async ({ email, password }) =>{
-            try {
-                await  login(email, password);
-                navigate('/')
-            } catch (error) {
-                console.log(error.message);
-            }
-        }
+const LoginForm = () => {
+  const login = useLogin();
+
+  const navigate = useNavigate();
+
+  const loginHandler = async ({ email, password }) => {
+    try {
+      await login(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const { values, changeHandler, submitHandler } = useForm(
+    initialValues,
+    loginHandler
   );
 
   return (
@@ -39,7 +43,7 @@ const LoginForm = () => {
               onChange={changeHandler}
               placeholder="Enter your email"
               required
-            /> 
+            />
           </div>
           <div className="input-group">
             <label htmlFor="password">
@@ -48,7 +52,7 @@ const LoginForm = () => {
             <input
               type="password"
               id="password"
-            name="password"
+              name="password"
               placeholder="Enter your password"
               value={values.password}
               onChange={changeHandler}

@@ -56,6 +56,12 @@ button {
     transition: background-color 0.3s ease;
 }
 
+.error-msg{
+    color: red;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
 button:hover {
     background-color: #106a2e;
 }

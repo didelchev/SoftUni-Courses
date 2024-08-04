@@ -6,8 +6,8 @@ import { useForm } from "../../hooks/useForm";
 
 const initialValues = { username: "", email: "", password: "", 'confirm-password': '' };
 
-const RegisterForm = () => {
-    const [error, setError] = useState('')
+const RegisterForm = () => {      
+  const [error, setError] = useState('')
   const register = useRegister();
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const RegisterForm = () => {
 
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setError(error.message)
     }
   };
   const { changeHandler, submitHandler, values } = useForm(
@@ -88,7 +88,12 @@ const RegisterForm = () => {
               placeholder="Confirm your password"
               required
             />
-          </div>
+          </div>  
+          {error &&  (
+            <p className="error-msg">
+            <span>{error}</span>
+          </p>
+          )}
           <button type="submit">Register</button>
           <div className="form-footer">
             <Link to="/login">Already have an account? Login</Link>

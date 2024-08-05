@@ -29,3 +29,9 @@ export function useGetOneDogs(id) {
       
     return [dog,setDog]
 }
+
+export function useCreateDog() {
+  const dogCreateHandler = (dogData) => dogsAPI.create(dogData)
+
+  return dogCreateHandler;
+}

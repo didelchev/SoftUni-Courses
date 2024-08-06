@@ -1,7 +1,22 @@
 import React from "react";
 import "./SinglePetDetails.css";
+import { Link, useParams } from "react-router-dom";
+import { useGetOneDogs } from "../../hooks/useDogs";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 export default function SinglePetDetails(singleDog) {
+  const { dogId } = useParams();
+  console.log(dogId);
+  
+  const [dog] = useGetOneDogs(dogId);
+  const {userId} = useAuthContext();
+
+  const isOwner = userId === dog._ownerId;
+
+
+
+
+
   return (
     <div className="dog-details-page">
       <div className="dog-card">
@@ -48,7 +63,12 @@ export default function SinglePetDetails(singleDog) {
               </div>
             </div>
           </div>
-          <button className="apply-button">Apply to Adopt</button>
+
+        {isOwner && (<div className="buttons">
+          <button><Link>Edit</Link></button>
+          <button><Link>Delete</Link></button>
+        </div>)}
+
         </div>
       </div>
       <div className="dog-description">

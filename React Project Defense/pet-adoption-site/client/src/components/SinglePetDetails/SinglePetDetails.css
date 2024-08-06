@@ -127,3 +127,9 @@
     margin-top: 1em ;
     color: rgb(72, 73, 74);
 }
+
+.buttons{
+    display: flex;
+    gap: 1.5em;
+    margin-top: 2em;
+}

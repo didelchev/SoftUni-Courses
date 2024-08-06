@@ -10,7 +10,6 @@ import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import PetDetails from './pages/PetDetails/PetDetails'
-import Dashboard from './pages/Dashboard/Dashboard'
 import PostPet from './pages/PostPet/PostPet'
 import EditPet from './pages/EditPet/EditPet'
 import PetCatalog from './pages/PetCatalog/PetCatalog'
@@ -31,7 +30,6 @@ const App = () => {
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/petcatalog' element={<PetCatalog/>}/>
         <Route path='/petcatalog/:id' element={<PetDetails/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/post-pet' element={<PostPet/>}/>
         <Route path='/petcatalog/:id/edit' element={<EditPet/>}/>
       </Routes>

@@ -5,6 +5,8 @@
     padding: 1em;
     border-radius: 0.5em;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+    transition: .3s ease-in-out;
+
 }
 
 .card-container img{
@@ -15,6 +17,10 @@
     height: 200px;
     object-fit: cover;
     aspect-ratio: 4/3;
+}
+
+.card-container .pet-details span{
+  color: #106a2e;
 }
 
 .pet-details{
@@ -34,4 +40,6 @@
     margin-right: 5px;
   }
 
-  
+  .card-container:hover{
+    transform: scale(1.05);
+  }

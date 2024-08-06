@@ -4,10 +4,11 @@ import dogsAPI from "../../api/dogs-api";
 
 import "./FeaturedSection.css";
 import PetCard from "../PetCard/PetCard";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
 export default function FeaturedSection() {
-  const navigate = useNavigate();
   const [featuredDogs, setFeaturedDogs] = useState([]);
 
   useEffect(() => {
@@ -29,16 +30,16 @@ export default function FeaturedSection() {
       </div>
       <div className="featured-container">
         {featuredDogs.map((dog) => (
-         <Link to={`/petcatalog/${dog._id}`}>
+         <Link key={dog._id} to={`/petcatalog/${dog._id}`}>
          <div className="featured-pet" >
           <div className="thumbnail-img">
             <img src={dog.imageUrl} />
           </div>
           <div className="pet-details">
             <h3>{dog.name}</h3>
-            <p>{dog.breed}</p>
-            <p>{dog.age}</p>
-            <p>{dog.location}</p>
+            <p>Breed: {dog.breed}</p>
+            <p>Age: {dog.age} </p>
+            <p><span><FontAwesomeIcon icon={faLocationDot}/></span>Location {dog.location}</p>
           </div>
         </div>
         </Link>

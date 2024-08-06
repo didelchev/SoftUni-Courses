@@ -46,7 +46,7 @@ export default function PostPet(){
         <form className="post-pet-form" onSubmit={submitHandler}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" value={values.petName} onChange={changeHandler}required />
+            <input type="text" id="name" name="name" value={values.name} onChange={changeHandler}required />
           </div>
           <div className="form-group">
             <label htmlFor="breed">Breed</label>
@@ -84,7 +84,7 @@ export default function PostPet(){
 
           <div className="form-group">
             <label htmlFor="image">Image</label>
-            <input type="text" id="image" name="imageUrl"  value= {values.upload} onChange={changeHandler}  />
+            <input type="text" id="image" name="imageUrl"  value= {values.imageUrl} onChange={changeHandler}  />
           </div>
 
 

@@ -6,9 +6,9 @@
 
 .featured-container{
     display: flex;
-    justify-content: center;
-    padding: 2em;
-    gap: 3em    ;
+    justify-content: space-evenly;
+    padding: 4em;
+    gap: 2em ;
 }
 .featured-pet{
     width: 400px;

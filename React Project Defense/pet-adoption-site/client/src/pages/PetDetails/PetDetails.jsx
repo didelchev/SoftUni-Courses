@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import dogsAPI from "../../api/dogs-api"
 import { useGetOneDogs } from '../../hooks/useDogs';
 
 import './PetDetails.css'
-import SinglePetDetails from '../../components/SinglePetDetails/SinglePetDetails';
 import Footer from '../../components/Footer/Footer';
 import { useAuthContext } from '../../contexts/AuthContext';
 
@@ -12,13 +11,25 @@ import { useAuthContext } from '../../contexts/AuthContext';
 export default function PetDetails() {
   const { id } = useParams();
   const [dog, setDog] = useGetOneDogs(id)
-
+  const navigate = useNavigate();
   const {userId} = useAuthContext();
 
   const isOwner = userId === dog._ownerId;
 
-  console.log(userId);
-  
+  const dogDeletHandler = async () => {
+    const isConfirmed = confirm(`Are you sure you want to delete ${dog.name} ?`)
+
+     if(!isConfirmed){
+      return
+     }
+
+    try {
+      await dogsAPI.remove(id);
+      navigate("/")
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   return (
     <div className="dog-details-page">
@@ -68,8 +79,8 @@ export default function PetDetails() {
           </div>
 
         {isOwner &&(<div className="buttons">
-          <button><Link>Edit</Link></button>
-          <button><Link>Delete</Link></button>
+          <Link to={`/petcatalog/${id}/edit`}><button>Edit</button></Link>
+          <button onClick={dogDeletHandler}>Delete</button>
         </div>)}
 
         </div>
@@ -92,16 +103,3 @@ export default function PetDetails() {
 
 
 
-{/* <div className='pet-details-page'>
-      <SinglePetDetails
-        name={dog.name}
-        img = {dog.imageUrl}
-        breed = {dog.breed}
-        age = {dog.age}
-        location = {dog.location}
-        color = {dog.color}
-        sex = {dog.sex}
-        size = {dog.size}
-      />
-       <Footer/>
-    </div> */}

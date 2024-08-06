@@ -17,21 +17,33 @@ export function useGetAllDogs() {
 }
 
 export function useGetOneDogs(id) {
-    const [dog, setDog] = useState({});
+  const [dog, setDog] = useState({
+    name: "",
+    breed: "",
+    color: "",
+    age: "",
+    sex: "",
+    size: "",
+    location: "",
+    description: "",
+    imageUrl: "",
+  });
 
-    useEffect (() => {
-        const getDog = async () => {
-          const result =  await dogsAPI.getOne(id)
-          setDog(result)
-        }
-        getDog()
-      },[id])
-      
-    return [dog,setDog]
+  useEffect(() => {
+    const getDog = async () => {
+      const result = await dogsAPI.getOne(id);
+      setDog(result);
+    };
+    getDog();
+  }, [id]);
+
+  return [dog, setDog];
 }
 
 export function useCreateDog() {
-  const dogCreateHandler = (dogData) => dogsAPI.create(dogData)
+  const dogCreateHandler = (dogData) => dogsAPI.create(dogData);
 
   return dogCreateHandler;
 }
+
+export function useDeleteDog(dogId) {}

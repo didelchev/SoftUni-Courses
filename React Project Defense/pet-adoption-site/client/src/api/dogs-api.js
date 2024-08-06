@@ -12,17 +12,41 @@ export const getAll =  async () => {
 }
  
 
+export const getFeatured = async () => {
+    const urlSearchParams = new URLSearchParams({
+        sortBy: '_createdOn desc',
+        pageSize: 3,
+    })
+
+    const stringParams = urlSearchParams.toString();
+    
+
+    const result = await request.get(`${BASE_URL}?${stringParams}`);
+
+    const featuredDogs = Object.values(result);
+
+    return featuredDogs
+}
+
+
+
 export const getOne =  (id) => request.get(`${BASE_URL}/${id}`)
 
-
 export const create = (dogData) => request.post(`${BASE_URL}`, dogData)
+
+export const remove = (dogId) => request.del(`${BASE_URL}/${dogId}`)
+
+export const update = (dogId, dogData) => request.put(`${BASE_URL}/${dogId}`, dogData) 
 
 
 
 const dogsAPI = {
     getAll,
+    getFeatured,
     getOne,
-    create
+    create,
+    remove,
+    update,
 }
 
 

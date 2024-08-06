@@ -33,7 +33,7 @@ const App = () => {
         <Route path='/petcatalog/:id' element={<PetDetails/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/post-pet' element={<PostPet/>}/>
-        <Route path='/edit-pet/:id' element={<EditPet/>}/>
+        <Route path='/petcatalog/:id/edit' element={<EditPet/>}/>
       </Routes>
       </div>
       </AuthContextProvider> 

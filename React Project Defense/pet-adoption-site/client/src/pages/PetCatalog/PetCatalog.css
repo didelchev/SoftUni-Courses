@@ -26,22 +26,38 @@ html{
 
 
 .search{
-    display: block;
-    width: 55%;
-    margin: 7em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8em auto;
     margin-bottom: 0;
+    width: max-content;
+    outline: 1px ridge grey;
+    border-radius: 3em;
+    padding: 0 1em;
+}
+
+.search .icon{
+margin-left: 1em;
+color: #1db750;
 }
 
 .search input{
     display: block;
-    width: 100%;
+    width: calc(3* 300px + 2*52px);
     height: 4em;
     padding: 1em;
-    border: 1px solid #333333;
-    border-radius: 2em;
-    color: #1db750;
+    color: grey;
     font-size: 1.2em;
+    font-style: italic;
+    border-style: none;
 }
+
+
+.search input:hover{
+    outline-color: #1db750;
+}
+
 
 .search input:focus{
     outline: none;

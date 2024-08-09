@@ -1,14 +1,18 @@
 import React, { useMemo } from "react";
-import "./PetCatalog.css";
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from "react";
+import {useGetAllDogs} from '../../hooks/useDogs';
+
+
 import PetCard from "../../components/PetCard/PetCard";
 import Footer from "../../components/Footer/Footer";
 import Loading from "../../components/Loading/Loading";
-import { Link } from 'react-router-dom'
-import * as request from "../../api/requester";
-import * as dogsAPI from '../../api/dogs-api'
 
-import {useGetAllDogs} from '../../hooks/useDogs';
+import "./PetCatalog.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
 
 
 export default function PetCatalog() {  
@@ -21,7 +25,8 @@ export default function PetCatalog() {
     return dogs.filter((dog) =>{
       return (
         dog.name.toLowerCase().includes(query) ||
-        dog.breed.toLowerCase().includes(query)
+        dog.breed.toLowerCase().includes(query) ||
+        dog.location.toLowerCase().includes(query)
         
       )
     })
@@ -44,7 +49,8 @@ export default function PetCatalog() {
     {!dogs ?  <Loading/> : 
     <>
     <form className="search" onSubmit={onSubmit}>
-    <input value ={query} onChange={onChange} type="search" placeholder="Search for a dog ..." />
+    <span className="icon"><FontAwesomeIcon icon={faMagnifyingGlass} size="2x" /></span>
+    <input value ={query} onChange={onChange} type="search" placeholder="Search for a dog ..." /> 
     </form>      
     <div className="catalog-page">
         {filteredDogs.map((dog) => (

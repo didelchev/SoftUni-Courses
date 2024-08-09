@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./PetCatalog.css";
 import { useState, useEffect } from "react";
 import PetCard from "../../components/PetCard/PetCard";
@@ -12,45 +12,42 @@ import {useGetAllDogs} from '../../hooks/useDogs';
 
 
 export default function PetCatalog() {  
+  const [query, setQuery] = useState('')
   const [dogs, setDogs] = useGetAllDogs()
-  // const [isLoading, setIsLoading] = useState(false);
 
 
-  // useEffect(() => {
-  //   const getDogs = async () =>{
-  //     setIsLoading(true);
-  //     const response = await fetch("http://localhost:3030/jsonstore/dogs");
-  //     const data = await response.json();
-  //     const dogData = Object.values(data);
-  //     setDogs(dogData);
-  //     setIsLoading(false)
-  //   }
-  //   getDogs()
-  // }, []);
 
-  // useEffect(() => {
-  //   setIsLoading(true)
-  //   dogsAPI.getAll()
-  //     .then(result => {
-  //       setDogs(result)
-  //       setIsLoading(false)
-  // })
-  // },[])
+  const filteredDogs = useMemo(() =>{
+    return dogs.filter((dog) =>{
+      return (
+        dog.name.toLowerCase().includes(query) ||
+        dog.breed.toLowerCase().includes(query)
+        
+      )
+    })
+  },[dogs,query])
+  
 
-  // useEffect(() => {
-  //   const getDogs = async () => {
-  //     const dogsData = await dogsAPI.getAll()
-  //     setDogs(dogsData)
-  //   }
-  //   getDogs()
-  // },[])
+  const onSubmit = (e) =>{
+    e.preventDefault();
 
+  }
+
+
+  const onChange = (e) =>{
+    setQuery(e.target.value)
+  }
+  
+  
   return (
     <>
     {!dogs ?  <Loading/> : 
     <>
-      <div className="catalog-page">
-        {dogs.map((dog) => (
+    <form className="search" onSubmit={onSubmit}>
+    <input value ={query} onChange={onChange} type="search" placeholder="Search for a dog ..." />
+    </form>      
+    <div className="catalog-page">
+        {filteredDogs.map((dog) => (
           <Link to={`/petcatalog/${dog._id}`} key ={dog._id} >
           <PetCard 
           img = {dog.imageUrl}

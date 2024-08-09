@@ -28,6 +28,20 @@ export const getFeatured = async () => {
     return featuredDogs
 }
 
+export const getSearchForDog = async (dogData) => {
+    // Prepare the query string with double quotes around the dogData
+    const searchParams = `name="${encodeURIComponent(dogData)}" OR breed="${encodeURIComponent(dogData)}"`;
+    
+    // Encode only the 'where' parameter
+    const encodedParams = `where=${encodeURIComponent(searchParams)}`;
+    
+    // Make the GET request using the encoded search parameters
+    const result = await request.get(`${BASE_URL}?${encodedParams}`);
+
+    // Assuming 'result' is already an array of dog objects
+    return result;
+}
+
 
 
 export const getOne =  (id) => request.get(`${BASE_URL}/${id}`)
@@ -43,6 +57,7 @@ export const update = (dogId, dogData) => request.put(`${BASE_URL}/${dogId}`, do
 const dogsAPI = {
     getAll,
     getFeatured,
+    getSearchForDog,
     getOne,
     create,
     remove,

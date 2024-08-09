@@ -16,6 +16,26 @@ export function useGetAllDogs() {
   return [dogs, setDogs];
 }
 
+export function useSearchDogs(query){;
+const [dogs, setDogs] = useState([]);
+
+useEffect(() =>{
+  if(query){
+    dogsAPI.getSearchForDog(query)
+      .then((result) =>{setDogs(result)
+        console.log(result);
+      })
+      
+      
+  }else{
+    dogsAPI.getAll()
+      .then((result) => {setDogs(result)})
+  }
+},[query])
+  
+  return [dogs]
+}
+
 export function useGetOneDogs(id) {
   const [dog, setDog] = useState({
     name: "",
@@ -47,3 +67,4 @@ export function useCreateDog() {
 }
 
 export function useDeleteDog(dogId) {}
+

@@ -12,7 +12,8 @@ export default function PetDetails() {
   const { id } = useParams();
   const [dog, setDog] = useGetOneDogs(id)
   const navigate = useNavigate();
-  const {userId} = useAuthContext();
+  const {userId, isAuthenticated} = useAuthContext();
+
 
   const isOwner = userId === dog._ownerId;
 
@@ -78,7 +79,7 @@ export default function PetDetails() {
             </div>
           </div>
 
-        {isOwner &&(<div className="buttons">
+        {isOwner && isAuthenticated &&(<div className="buttons">
           <Link to={`/petcatalog/${id}/edit`}><button>Edit</button></Link>
           <button onClick={dogDeletHandler}>Delete</button>
         </div>)}

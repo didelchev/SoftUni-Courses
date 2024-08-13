@@ -133,3 +133,10 @@
     gap: 1.5em;
     margin-top: 2em;
 }
+.buttons a {
+    width: 100%;
+};
+
+.buttons .delete-btn{
+    background-color: red;
+}

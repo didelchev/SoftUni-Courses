@@ -17,6 +17,7 @@ const initialValues = {
   location: "",
   description: "",
   imageUrl: "",
+  phone: "",
 }
 
 export default function PostPet(){ 
@@ -77,9 +78,15 @@ export default function PostPet(){
               <option value="large">Large</option>
             </select>
           </div>
+
           <div className="form-group">
             <label htmlFor="location">Location</label>
             <input type="text" id="location" name="location" value={values.location} onChange={changeHandler} required />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="phone">Phone for contact</label>
+            <input type="text" id="phone" name="phone" value={values.phone} onChange={changeHandler} required />
           </div>
 
           <div className="form-group">

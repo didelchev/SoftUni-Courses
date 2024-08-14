@@ -76,6 +76,10 @@ export default function PetDetails() {
                 <div>Location: </div>
                 <div>{dog.location}</div>
               </div>
+              <div className="list-item">
+                <div>Phone: </div>
+                <div>{dog.phone}</div>
+              </div>
             </div>
           </div>
 
@@ -88,7 +92,7 @@ export default function PetDetails() {
       </div>
       <div className="dog-description">
             <h2>Description</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, repellendus. Dolore, facere? Officia, hic. Nam totam ea nesciunt sint quaerat fugiat eligendi magni aliquam facere hic dolor distinctio, doloribus itaque, vel cum! Dolor laborum, impedit sapiente similique voluptatum necessitatibus et hic nam eos officiis, tenetur, libero eius repudiandae ratione architecto reiciendis voluptatem praesentium error! Inventore accusantium nobis corporis id a sapiente ut, ratione officia eveniet, minima ipsa dolorem aut provident labore mollitia voluptate placeat! Aperiam dolor assumenda, nesciunt ad illo eligendi, laborum doloribus iure, voluptatum consequuntur eius tenetur eos. Hic velit nesciunt vero suscipit exercitationem sequi libero sed, maxime beatae.</p>
+            <p>{dog.description}</p>
         </div>
     </div>
     

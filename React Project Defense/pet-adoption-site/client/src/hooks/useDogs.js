@@ -47,6 +47,7 @@ export function useGetOneDogs(id) {
     location: "",
     description: "",
     imageUrl: "",
+    phone: "",
   });
 
   useEffect(() => {

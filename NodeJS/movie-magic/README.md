@@ -3,3 +3,4 @@
 2. Setup express
 3. Add view engine 
 4. Add resources
+5. Add static route 

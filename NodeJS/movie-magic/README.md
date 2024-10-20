@@ -6,3 +6,4 @@
 5. Add static route 
 6. Add home page
 7. Add routes and controller 
+8. Extract partial template

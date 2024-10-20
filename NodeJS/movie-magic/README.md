@@ -4,3 +4,5 @@
 3. Add view engine 
 4. Add resources
 5. Add static route 
+6. Add home page
+7. Add routes and controller 

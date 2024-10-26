@@ -1,4 +1,5 @@
-## Developing steps
+
+## Developing steps - Workshop 1 
 1. Initial Project Architecture
 2. Setup express
 3. Add view engine 
@@ -11,3 +12,8 @@
 10. Add Create page
 11. Add Details page
 12. Add Search page 
+
+## Developing steps - Workshop 2 
+1. Extract init files 
+2. Setup mongoose
+3. Add models

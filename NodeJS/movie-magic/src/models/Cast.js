@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const castSchema = new Schema({
     name: String,
@@ -9,3 +9,5 @@ const castSchema = new Schema({
 })
 
 const Cast = model('Cast', castSchema);
+
+export default Cast;

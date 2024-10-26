@@ -19,3 +19,5 @@
 3. Add models
 4. Add movie model
 5. Convert file based storage to DB storage
+6. Add cast model
+7. Create cast page

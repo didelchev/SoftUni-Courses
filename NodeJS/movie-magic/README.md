@@ -17,3 +17,5 @@
 1. Extract init files 
 2. Setup mongoose
 3. Add models
+4. Add movie model
+5. Convert file based storage to DB storage

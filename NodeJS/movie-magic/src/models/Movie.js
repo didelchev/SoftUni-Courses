@@ -1,4 +1,4 @@
-import { Collection, Schema, model } from "mongoose";
+import {  Schema, model } from "mongoose";
 
  const movieSchema = new Schema({
     title: String,

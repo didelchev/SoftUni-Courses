@@ -22,3 +22,11 @@
 6. Add cast model
 7. Create cast page
 8. Add attach cast page
+
+## Developing steps - Workshop 3
+1. Add Register page
+    1.1 Add User model
+    1.2 Auth Controller 
+    1.3 Add auth service 
+2. Add Login page
+

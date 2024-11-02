@@ -1,0 +1,44 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/planets">Catalog</a></li>
+          <li><a href="#">Search</a></li>
+          {{#if isAuthenticated}}
+          <li><a href="/auth/logout">Logout</a></li>
+          <li><a href="/planets/create">Create</a></li>
+          {{else}}
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/register">Register</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      {{#if error}}
+      <div>
+        <div class="error-containers">
+          <p>{{error}}</p>
+        </div>
+      </div>
+      {{/if}}
+        {{{body}}}
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Cosmic Explorer. All rights reserved.</p>
+    </footer>
+  </body>
+
+</html>

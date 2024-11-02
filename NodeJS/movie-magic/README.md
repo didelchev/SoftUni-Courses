@@ -29,4 +29,6 @@
     1.2 Auth Controller 
     1.3 Add auth service 
 2. Add Login page
-
+    2.1 Validate hashed password
+    2.2 Create JWT token 
+    2.3 Add token to cookie

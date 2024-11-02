@@ -20,7 +20,15 @@ router.post('/register' , async (req,res) => {
      await authService.register(email, password)
 
     res.redirect('/auth/login');
+})
 
+router.post('/login', async(req,res) => {
+    const { email, password } = req.body;
+
+    const token = await authService.login(email,password);
+
+    // Add token to cookie
+    res.redirect("/");
 })
 
 

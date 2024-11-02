@@ -2,7 +2,6 @@ import User from '../models/User.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-const SECRET = '812312asd0asd12312'
 
 const register  = (email, password) => {
     //Check if user exists

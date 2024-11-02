@@ -1,5 +1,6 @@
 import User from '../models/User.js';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 const SECRET = '812312asd0asd12312'
 
@@ -25,6 +26,7 @@ const login = async (email, password) => {
 
     //Generate JWT Token
     const payload = { email, _id: user._id,}
+
     const token = jwt.sign(payload, SECRET, {expiresIn: '2h'});
 
     //Return JWT Token
@@ -33,5 +35,6 @@ const login = async (email, password) => {
 
 
 export default {
-    register
+    register,
+    login
 }

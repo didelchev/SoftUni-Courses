@@ -32,3 +32,4 @@
     2.1 Validate hashed password
     2.2 Create JWT token 
     2.3 Add token to cookie
+3. Add authorization

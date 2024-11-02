@@ -33,3 +33,4 @@
     2.2 Create JWT token 
     2.3 Add token to cookie
 3. Add authorization
+4. Add owner controll buttons to details page 

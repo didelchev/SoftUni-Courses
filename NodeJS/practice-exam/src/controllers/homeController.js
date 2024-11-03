@@ -1,9 +1,9 @@
 import { Router } from "express";
 
-const homeController = Router();
+const router = Router();
 
-homeController.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.render("home", { title: "Cosmic Exploler" });
 });
 
-export default homeController;
+export default router;

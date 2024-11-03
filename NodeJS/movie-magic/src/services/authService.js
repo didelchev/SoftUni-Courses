@@ -7,9 +7,9 @@ const register = (email, password) => {
   return User.create({ email, password });
 };
 
-const login = async (email, password) => {
+const login = async (username, password) => {
   // Check if user exists
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ username });
 
   if (!user) {
     throw new Error("User does not exists!");
@@ -23,7 +23,7 @@ const login = async (email, password) => {
   }
 
   //Generate JWT Token
-  const payload = { email, _id: user._id };
+  const payload = { username, _id: user._id };
 
   const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "2h" });
 

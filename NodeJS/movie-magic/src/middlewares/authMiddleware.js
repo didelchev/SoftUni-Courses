@@ -1,31 +1,34 @@
-import jwt from 'jsonwebtoken';
-import { JWT_SECRET } from '../config/constants.js';
-
+import jwt from "jsonwebtoken";
+import { JWT_SECRET } from "../config/constants.js";
 
 export const authMiddleware = (req, res, next) => {
-    //Check if there is a token in the requets
-    const token = req.cookies['auth'];
- 
-    if(!token){
-        return next();
-    }
-    //Validate token 
+  //Check if there is a token in the requets
+  const token = req.cookies["auth"];
 
-    try {
-        const decodedToken = jwt.verify(token, JWT_SECRET)
+  if (!token) {
+    return next();
+  }
+  //Validate token
 
-        req.user = {
-            _id: decodedToken._id,
-            email: decodedToken.email
-        }
-        
-        return next();
-        
-    } catch (err) {
-        res.clearCookie('auth');
+  try {
+    const decodedToken = jwt.verify(token, JWT_SECRET);
 
-        res.redirect('/auth/login');
-    }
+    const user = {
+      _id: decodedToken._id,
+      email: decodedToken.email,
+    };
 
-    // Add user data to request
-}
+    req.user = user;
+    res.locals.userId = user._id;
+    res.locals.userEmails = user.email;
+    res.locals.isAuthenticated = true;
+
+    return next();
+  } catch (err) {
+    res.clearCookie("auth");
+
+    res.redirect("/auth/login");
+  }
+
+  // Add user data to request
+};

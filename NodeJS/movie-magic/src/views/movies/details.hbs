@@ -8,7 +8,10 @@
         <div class="card-movie">
           <div class="first-info">
             <p class="card-genre">Genre: {{movie.genre}}</p>
-            <p class="card-director">Directror: {{movie.director}}</p>
+            <p class="card-director">
+              Directror:
+              {{movie.director}}</p>
+
           </div>
           <div class="second-info">
             <p class="card-year">Year: {{movie.year}}</p>
@@ -20,7 +23,7 @@
         </div>
 
         <p class="disc">Description: {{movie.description}}</p>
-        
+
         <a
           href="/movies/{{movie._id}}/attach"
           class="details"
@@ -28,8 +31,8 @@
         >Attach</a>
       </div>
       {{#if isOwner}}
-      <div class="details-btn">
-          <a href="#" id="edit-button">Edit</a>
+        <div class="details-btn">
+          <a href="/movies/{{movie._id}}/edit" id="edit-button">Edit</a>
           <a href="/movies/{{movie._id}}/delete" id="delete-button">Delete</a>
         </div>
       {{/if}}

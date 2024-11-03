@@ -4,7 +4,6 @@ import { JWT_SECRET } from "../config/constants.js";
 import User from "../models/User.js";
 
 const register = (email, password) => {
-  //Check if user exists
   return User.create({ email, password });
 };
 

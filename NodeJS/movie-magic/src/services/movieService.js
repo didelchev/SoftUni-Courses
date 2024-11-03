@@ -27,7 +27,9 @@ const getOne = (movieId) => Movie.findById(movieId).populate("casts");
 const attach = (movieId, castId) => {
   return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
 };
-const edit = (movieId) => Movie.findByIdAndUpdate(movieId);
+
+const edit = (movieId, movieData) =>
+  Movie.findByIdAndUpdate(movieId, movieData);
 
 const remove = (movieId) => Movie.findByIdAndDelete(movieId);
 

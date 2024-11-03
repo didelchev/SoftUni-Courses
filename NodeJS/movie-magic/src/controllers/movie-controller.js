@@ -76,10 +76,11 @@ router.post("/:movieId/attach", async (req, res) => {
   res.redirect(`/movies/${movieId}/details`);
 });
 
-router.post(":/movieId/edit", async (req, res) => {
+router.post("/:movieId/edit", async (req, res) => {
+  const movieData = req.body;
   const movieId = req.params.movieId;
 
-  await movieService.edit(movieId);
+  await movieService.edit(movieId, movieData);
 
   res.redirect(`/movies/${movieId}/details`);
 });

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { isAuth } from "../middlewares/authMiddleware.js";
 import castService from "../services/castService.js";
 import movieService from "../services/movieService.js";
 
@@ -9,7 +10,7 @@ function toArray(documents) {
 }
 
 // ------ GET ---------
-router.get("/create", (req, res) => {
+router.get("/create", isAuth, (req, res) => {
   res.render("movies/create");
 });
 
@@ -24,7 +25,7 @@ router.get("/:movieId/details", async (req, res) => {
   const movieId = req.params.movieId;
   const movie = await movieService.getOne(movieId).lean();
 
-  const isOwner = req.user?._id == movie.owner;
+  const isOwner = movie.owner && movie.owner == req.user?._id;
   console.log(req.user?._id);
 
   movie.ratingView = getRatingViewData(movie.rating);
@@ -32,7 +33,7 @@ router.get("/:movieId/details", async (req, res) => {
   res.render("movies/details", { movie, isOwner });
 });
 
-router.get("/:movieId/attach", async (req, res) => {
+router.get("/:movieId/attach", isAuth, async (req, res) => {
   const movieId = req.params.movieId;
 
   const movie = await movieService.getOne(movieId).lean();
@@ -41,7 +42,7 @@ router.get("/:movieId/attach", async (req, res) => {
   res.render("movies/cast-attach", { movie, cast });
 });
 
-router.get("/:movieId/delete", async (req, res) => {
+router.get("/:movieId/delete", isAuth, async (req, res) => {
   const movieId = req.params.movieId;
 
   await movieService.remove(movieId);
@@ -49,7 +50,7 @@ router.get("/:movieId/delete", async (req, res) => {
   res.redirect("/");
 });
 
-router.get("/:movieId/edit", async (req, res) => {
+router.get("/:movieId/edit", isAuth, async (req, res) => {
   const movieId = req.params.movieId;
   const movie = await movieService.getOne(movieId).lean();
 
@@ -57,7 +58,7 @@ router.get("/:movieId/edit", async (req, res) => {
 });
 
 // ------ POST ---------
-router.post("/create", async (req, res) => {
+router.post("/create", isAuth, async (req, res) => {
   const movieData = req.body;
   const ownerId = req.user?._id;
   // console.log(ownerId);
@@ -67,7 +68,7 @@ router.post("/create", async (req, res) => {
   res.redirect("/");
 });
 
-router.post("/:movieId/attach", async (req, res) => {
+router.post("/:movieId/attach", isAuth, async (req, res) => {
   const movieId = req.params.movieId;
   const castId = req.body.cast;
 
@@ -76,7 +77,7 @@ router.post("/:movieId/attach", async (req, res) => {
   res.redirect(`/movies/${movieId}/details`);
 });
 
-router.post("/:movieId/edit", async (req, res) => {
+router.post("/:movieId/edit", isAuth, async (req, res) => {
   const movieData = req.body;
   const movieId = req.params.movieId;
 

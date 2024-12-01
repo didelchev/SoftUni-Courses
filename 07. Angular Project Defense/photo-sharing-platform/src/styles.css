@@ -1,59 +1,69 @@
-/*
-*Removes all default whitespace
-*/
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-/*
-  *Reset CSS model sizing calculations
-  */
-
-html {
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+/* 2. Remove default margin */
+* {
+  margin: 0;
 }
 
-html {
-  font: 18px/1.5 Verdana, sans-serif;
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body,
-form,
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
 input,
+button,
 textarea,
-option,
-select,
-button {
+select {
   font: inherit;
 }
 
-button:hover {
-  cursor: pointer;
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
-/* Media Query */
-@media (min-width: 800px) {
-  html {
-    font-size: 14px;
-  }
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
 
-@media (min-width: 1024px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 1280px) {
-  html {
-    font-size: 18px;
-  }
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
 }

@@ -1,0 +1,18 @@
+.container{
+    border: 1px solid black;
+    max-width: 65%;
+    margin: 2em auto;
+    padding: 2.5em;
+}
+span{
+    display: block;
+    margin: 1.5em 0 1.5em 0;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.footer{
+    font-style: italic;
+}

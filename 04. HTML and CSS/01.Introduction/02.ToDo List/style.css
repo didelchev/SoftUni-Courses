@@ -1,0 +1,8 @@
+.done:hover{
+    text-decoration-line: line-through;
+}
+
+button{
+    background-color: greenyellow;
+    box-shadow: none;
+}

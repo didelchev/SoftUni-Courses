@@ -1,5 +1,6 @@
 .register-container {
   display: flex;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   background: url("https://images.unsplash.com/photo-1534531688091-a458257992cb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
@@ -10,15 +11,17 @@
 .register-form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10em;
+  width: 400px;
+  padding: 2em;
   background: rgba(255, 255, 255, 0.8);
-  padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   text-align: center;
-  margin: 1em;
 }
 
 .register-form h2 {
+  font-size: 2em;
 }
 
 .input-group {
@@ -38,6 +41,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1.1em;
+  padding: 0.4em
 }
 
 button {
@@ -45,7 +49,7 @@ button {
   padding: 15px;
   border: none;
   border-radius: 5px;
-  background-color: #1db750;
+  background-color: #3d3d3d;
   color: white;
   font-size: 1.2em;
   cursor: pointer;
@@ -59,7 +63,7 @@ button {
 }
 
 button:hover {
-  background-color: #106a2e;
+  background-color: #525252;
 }
 
 .form-footer {
@@ -67,7 +71,7 @@ button:hover {
 }
 
 .form-footer a {
-  color: #1db750;
+  color: #181818;
   text-decoration: none;
   font-size: 1em;
 }

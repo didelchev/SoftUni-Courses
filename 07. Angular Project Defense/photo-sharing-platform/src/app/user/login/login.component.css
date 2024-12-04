@@ -6,25 +6,25 @@
   background: url(https://images.unsplash.com/photo-1531944252668-83d381a30b26?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
     no-repeat center center fixed;
   background-size: cover;
-  filter: grayscale(100%);
-  transition: filter 0.5s ease-in-out;
+  /* filter: grayscale(100%); */
+  /* transition: filter 0.5s ease-in-out; */
 }
 
-.login-container:hover {
+/* .login-container:hover {
   filter: none;
-}
+} */
 
 .login-form {
+  width: 400px;
   background: rgba(255, 255, 255, 0.6);
-  padding: 40px;
+  margin-bottom: 10em;
+  padding: 2em;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  width: 450px;
   text-align: center;
 }
 
 .login-form h2 {
-  margin-bottom: 30px;
   font-size: 2em;
 }
 

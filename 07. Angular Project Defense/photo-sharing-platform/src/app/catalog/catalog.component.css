@@ -1,65 +1,28 @@
-/* Container for the catalog */
-.catalog-container {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(200px, 1fr)
-  ); /* Responsive grid */
-  gap: 15px;
-  padding: 20px;
+/* Masonry container */
+.masonry-layout {
+  width: 60%;
+  margin: 1em auto;
+  column-count: 3; /* Number of columns */
+  column-gap: 15px; /* Gap between columns */
+  padding: 10px; /* Optional padding around layout */
 }
 
-/* Individual photo card */
-.photo-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Masonry items */
+.masonry-item {
+  margin-bottom: 15px; /* Gap between rows */
+  break-inside: avoid; /* Prevent breaking inside columns */
 }
 
-.photo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Image styling */
-.photo-image {
-  width: 100%;
-  height: auto;
+.masonry-item img {
+  width: 100%; /* Images take full width */
   display: block;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  border-radius: 8px; /* Optional: Rounded corners */
+  transition: transform 0.3s ease, filter 0.3s ease; /* Smooth hover effect */
+  filter: grayscale();
 }
 
-.photo-card:hover .photo-image {
-  filter: none; /* Restore original color on hover */
-}
-
-/* Overlay with title and description */
-.photo-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-}
-
-.photo-card:hover .photo-overlay {
-  transform: translateY(0); /* Slide up the overlay on hover */
-}
-
-.photo-overlay h3 {
-  margin: 5px 0;
-  font-size: 1.2rem;
-}
-
-.photo-overlay p {
-  font-size: 0.9rem;
-  margin: 0;
+/* Hover effects for images */
+.masonry-item img:hover {
+  transform: scale(1.02); /* Zoom effect */
+  filter: grayscale(0); /* Restore color */
 }

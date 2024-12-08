@@ -1,0 +1,40 @@
+<div class="add-photo-container">
+    <h1>Add a New Photo</h1>
+    <form class="photo-form">
+      <!-- Drag-and-Drop Upload Area -->
+      <div class="upload-area" id="upload-area">
+        <p>Drag and drop your photo here, or <span>browse</span></p>
+        <input type="file" id="photo" accept="image/*">
+      </div>
+
+      <!-- Image Preview -->
+      <div class="image-preview">
+        <p>No image selected</p>
+      </div>
+
+      <!-- Title Input -->
+      <div class="form-group">
+        <label for="title">Photo Title:</label>
+        <input type="text" id="title" placeholder="Enter photo title">
+      </div>
+      <!-- Location Input -->
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" placeholder="Enter photo location">
+      </div>
+      <!-- Device  -->
+      <div class="form-group">
+        <label for="device">Device:</label>
+        <input type="text" id="device" placeholder="Enter device name">
+      </div>
+
+      <!-- Description Input -->
+      <div class="form-group">
+        <label for="description">Photo Description:</label>
+        <textarea id="description" placeholder="Enter a description for your photo"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="button">Submit Photo</button>
+    </form>
+  </div>

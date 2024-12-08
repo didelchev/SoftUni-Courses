@@ -1,3 +1,8 @@
-<app-header></app-header>
+@if (showNavbar) {
+    <app-header></app-header>
+}
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+@if (showNavbar){
+
+    <app-footer></app-footer>
+}

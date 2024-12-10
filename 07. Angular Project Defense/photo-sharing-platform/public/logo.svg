@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="200" height="200">
+  <!-- Circle background -->
+  <circle cx="60" cy="60" r="58" fill="none" stroke="white" stroke-width="4"/>
+  
+  <!-- Camera lens (minimalist) -->
+  <circle cx="60" cy="60" r="20" fill="none" stroke="white" stroke-width="4"/>
+  <circle cx="60" cy="60" r="8" fill="white"/>
+
+  <!-- Arrow to symbolize sharing -->
+  <path d="M45 70 L60 85 L75 70" stroke="white" stroke-width="4" fill="none"/>
+  <path d="M60 85 L60 55" stroke="white" stroke-width="4" fill="none"/>
+
+  <!-- Text (name of the platform) -->
+  <text x="60" y="110" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">
+    ShareSphere
+  </text>
+</svg>

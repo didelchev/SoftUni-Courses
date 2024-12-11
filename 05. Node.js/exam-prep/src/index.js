@@ -1,3 +1,4 @@
+import cookieParser from "cookie-parser";
 import express from "express";
 import handlebars from "express-handlebars";
 import mongoose from "mongoose";
@@ -24,6 +25,8 @@ app.set("view engine", "hbs");
 app.use("/static", express.static("src/public"));
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
 
 app.use(routes);
 app.listen(5000, () => {

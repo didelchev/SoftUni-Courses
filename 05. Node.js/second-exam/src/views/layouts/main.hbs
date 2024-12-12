@@ -1,45 +1,47 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title}}</title>
-    <link rel="stylesheet" href="/static/styles.css">
-</head>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/search">Search</a></li>
-                <li><a href="/products/create">Add Product</a></li>
-                <li><a href="/auth/login">Login</a></li>
-                <li><a href="/auth/register">Register</a></li>
-                <li><a href="/auth/logout">Logout</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/products/search">Search</a></li>
+          <li><a href="/products/catalog">Products</a></li>
+          {{#if isAuthenticated}}
+            <li><a href="/products/create">Add Product</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+          {{else}}
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/auth/register">Register</a></li>
+          {{/if}}
+        </ul>
+      </nav>
     </header>
     <main>
-        <!-- In case of error, you should display div with class "error-container" -->
-        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-        <!-- <div class="error-container">
+      <!-- In case of error, you should display div with class "error-container" -->
+      <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+      <!-- <div class="error-container">
             <p>Error</p>
         </div> -->
 
-        {{#if error}}
+      {{#if error}}
         <div class="error-container">
-            <p>{{error}}</p>
+          <p>{{error}}</p>
         </div>
-        {{/if}}
+      {{/if}}
 
-        {{{body}}}
-  </main>
+      {{{body}}}
+    </main>
     <footer>
-        <p>&copy; 2024 GlowAlchemy. All rights reserved.</p>
+      <p>&copy; 2024 GlowAlchemy. All rights reserved.</p>
     </footer>
-</body>
+  </body>
 
 </html>

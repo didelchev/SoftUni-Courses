@@ -38,3 +38,23 @@ export const isAuth = (req, res, next) => {
     
     return next();
 }
+
+export const isOwner = async (req, res, next) =>{
+    let product = await productServices.getOne(req.params.productId);
+
+    if (product.owner == req.user._id) {
+        res.redirect(`/product/${req.params.productId}/details`);
+    } else {
+        next();
+    }
+}
+
+async function checkIsOwner(req, res, next) {
+    let product = await productServices.getOne(req.params.productId);
+
+    if (product.owner == req.user._id) {
+        next();
+    } else {
+        res.redirect(`/product/${req.params.productId}/details`);
+    }
+}

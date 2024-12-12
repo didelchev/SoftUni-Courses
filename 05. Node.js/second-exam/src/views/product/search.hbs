@@ -1,0 +1,29 @@
+<section class="search-container">
+  <h2>Search Products</h2>
+  <form method="post">
+    <input
+      type="text"
+      id="search"
+      name="search"
+      placeholder="Search for products..."
+    />
+    <button type="submit">Search</button>
+  </form>
+  {{#if products}}
+  {{#each products}}
+  <div class="search-results">
+    <article class="product">
+      <img
+        src="{{image}}"
+      />
+      <h3>{{name}}</h3>
+      <p>{{description}}</p>
+      <a href="/products/{{_id}}/details">Read More</a>
+    </article>
+    {{/each}}
+    {{else}}
+    
+    <p class="no-match">There are no products found yet!</p> 
+    {{/if}}
+  </div>
+</section>

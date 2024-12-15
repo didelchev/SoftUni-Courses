@@ -1,15 +1,7 @@
 <div class="masonry-layout">
-  <a routerLink="/explore/details" class="masonry-item"
-    ><img src="3.jpg" alt="Photo 4"
+  @for (photo of photos; track $index) {
+  <a routerLink="/explore/{{ photo._id }}/details" class="masonry-item"
+    ><img src="{{ photo.image }}" alt="{{ photo.name }}"
   /></a>
-  <div class="masonry-item"><img src="cover.webp" alt="Photo 5" /></div>
-  <div class="masonry-item"><img src="1.jpg" alt="Photo 1" /></div>
-  <div class="masonry-item"><img src="4.jpg" alt="Photo 5" /></div>
-  <div class="masonry-item"><img src="2.jpg" alt="Photo 3" /></div>
-  <div class="masonry-item"><img src="camera.jpg" alt="Photo 2" /></div>
-  <div class="masonry-item"><img src="8.jpg" alt="Photo 5" /></div>
-  <div class="masonry-item"><img src="7.jpg" alt="Photo 5" /></div>
-  <div class="masonry-item"><img src="9.jpg" alt="Photo 5" /></div>
-  <div class="masonry-item"><img src="6.jpg" alt="Photo 5" /></div>
-  <!-- Add more images -->
+  }
 </div>

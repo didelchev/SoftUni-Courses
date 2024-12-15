@@ -20,7 +20,7 @@ export const routes: Routes = [
     path: 'explore',
     children: [
       { path: '', component: CatalogComponent },
-      { path: 'details', component: PictureComponent },
+      { path: ':photoId/details', component: PictureComponent },
     ],
   },
 

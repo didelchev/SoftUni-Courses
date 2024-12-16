@@ -1,25 +1,27 @@
-<div class="container">
-  <div
-    class="image-container"
-    style="background-image: url('{{ photo?.image }}')"
-  ></div>
-  <div class="details">
-    <h1>{{ photo?.name }}</h1>
-    <p>
-      <strong>Description:</strong> A breathtaking view of the mountains during
-      sunset.
-    </p>
-    <p>
-      <strong>Uploaded by:</strong>
-      <span class="author"
-        ><img src="https://via.placeholder.com/50" alt="Author" />
-        {{ photo?.owner }}</span
-      >
-    </p>
-
-    <div class="buttons">
-      <button class="like">Like</button>
-      <button class="download">Download</button>
+@if (isLoading) {
+  <app-loader></app-loader>
+}@else {
+  <div class="photo-card">
+    <div class="photo-image">
+      <img src="{{ photo.image }}" alt="{{ photo.name }}" />
+    </div>
+    <div class="photo-details">
+      <h2 class="photo-name">{{ photo.name }}</h2>
+      <p class="photo-description">{{ photo.description }}</p>
+      <div class="photo-metadata">
+        <p><strong>Date:</strong> {{ photo.date }}</p>
+        <p><strong>Location:</strong> {{ photo.location }}</p>
+        <p><strong>Device:</strong> {{ photo.device }}</p>
+        <p><strong>Owner:</strong> {{ photo.owner }}</p>
+      </div>
     </div>
   </div>
-</div>
+  
+}
+
+
+
+
+  
+
+  

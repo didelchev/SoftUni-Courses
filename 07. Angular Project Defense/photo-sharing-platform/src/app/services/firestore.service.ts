@@ -20,16 +20,33 @@ export class PhotoService {
     return getDocs(photosRef); // Fetch all documents in the collection
   }
 
-  getSinglePhoto(photoId: string): Promise<Photo | undefined> {
-    const photoRef = doc(this.firestore, 'photos', photoId); // Reference to the specific document
-
-    return getDoc(photoRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        return snapshot.data() as Photo; // Return the photo data if it exists
-      } else {
-        console.log('No such document!');
-        return undefined; // If the document doesn't exist
-      }
-    });
+  getPhotoById(photoId: string): Promise<Photo | null> {
+    const photoRef = doc(this.firestore, `Photos/${photoId}`);
+  
+    return getDoc(photoRef)
+      .then((docSnapshot) => {
+        if (docSnapshot.exists()) {
+          const data = docSnapshot.data() as Photo; // Explicitly cast data to the Photo interface
+          return {
+            _id: docSnapshot.id, // Include the Firestore document ID
+            name: data.name,
+            date: data.date,
+            owner: data.owner,
+            location: data.location,
+            description: data.description,
+            device: data.device,
+            image: data.image,
+          } as Photo;
+        } else {
+          console.error('Photo not found with ID:', photoId);
+          return null;
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching photo:', error);
+        return null;
+      });
   }
+  
+  
 }

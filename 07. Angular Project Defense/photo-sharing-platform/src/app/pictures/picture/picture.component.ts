@@ -3,27 +3,31 @@ import { Firestore, collection, getDocs } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Photo } from '../../models/Photo';
 import { PhotoService } from '../../services/firestore.service';
+import { LoaderComponent } from '../../shared/loader/loader.component';
 
 @Component({
   selector: 'app-picture',
   standalone: true,
-  imports: [],
+  imports: [LoaderComponent],
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css',
 })
 export class PictureComponent implements OnInit {
-  photo: Photo | undefined;
+  photo: Photo | any;
+  isLoading : boolean = false;
 
   constructor(
     private photoService: PhotoService,
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    const photoId = this.route.snapshot.params['themeId'];
-
-    this.photoService.getSinglePhoto(photoId).then((fetchedPhoto) => {
-      this.photo = fetchedPhoto;
-      console.log(this.photo);
-    });
+    const photoId = this.route.snapshot.params['photoId'];
+    this.isLoading =true
+    this.photoService.getPhotoById(photoId)
+    .then((photo)=>{ this.photo = photo
+      console.log(photo?._id);
+      this.isLoading = false
+      
+    })
   }
 }

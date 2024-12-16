@@ -6,6 +6,7 @@ export interface Photo {
   date: String;
   owner: String;
   location: String;
+  description?: String;
   device: String;
   image: String;
 }

@@ -26,7 +26,6 @@ export class CatalogComponent implements OnInit {
         this.photos = snapshot.docs.map(
           (doc) => ({ _id: doc.id, ...doc.data() } as Photo)
         );
-        console.log(this.photos);
       })
       .catch((error) => {
         console.error('Error fetching photos:', error);

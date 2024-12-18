@@ -1,43 +1,116 @@
+/* Base reset and styling for the page */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container for the photo card */
+.photo-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Photo card with responsive layout */
 .photo-card {
   display: flex;
-  flex-direction: column;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  max-width: 400px;
-  margin: 20px auto;
-}
-
-.photo-image img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  padding: 20px;
+  flex-direction: column;
+  max-width: 1100px;
+  height: fit-content;
+  background-color: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.photo-details {
-  padding: 15px;
+/* Wrapper for the photo image */
+.photo-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio for the image container */
+  /* This padding trick helps to scale the container based on the aspect ratio */
 }
 
-.photo-name {
-  font-size: 1.5rem;
+/* The image itself, using contain to prevent zooming */
+.photo-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image fits within the container without cropping */
+}
+
+
+
+/* Content below the image */
+.photo-content {
+  padding: 20px;
+}
+
+/* Title styling */
+.photo-title {
+  font-size: 1.8rem;
+  font-weight: bold;
   color: #333;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
+/* Description styling */
 .photo-description {
   font-size: 1rem;
   color: #555;
-  margin-bottom: 15px;
+  line-height: 1.6;
+  margin: 10px 0;
 }
 
-.photo-metadata p {
+/* Details section */
+.photo-details {
   font-size: 0.9rem;
-  color: #666;
+  color: #777;
+  margin-top: 15px;
+}
+
+.photo-details p {
   margin: 5px 0;
 }
 
-.photo-metadata strong {
-  color: #333;
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+  .photo-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photo-image-wrapper {
+    padding-top: 75%; /* Adjust aspect ratio for smaller screens */
+  }
+
+  .photo-content {
+    padding: 15px;
+  }
+
+  .photo-title {
+    font-size: 1.5rem;
+  }
+
+  .photo-description {
+    font-size: 0.95rem;
+  }
+
+  .photo-details {
+    font-size: 0.85rem;
+  }
 }

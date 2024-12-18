@@ -22,7 +22,7 @@ export class PhotoService {
 
   getPhotoById(photoId: string): Promise<Photo | null> {
     const photoRef = doc(this.firestore, `Photos/${photoId}`);
-  
+
     return getDoc(photoRef)
       .then((docSnapshot) => {
         if (docSnapshot.exists()) {
@@ -31,7 +31,7 @@ export class PhotoService {
             _id: docSnapshot.id, // Include the Firestore document ID
             name: data.name,
             date: data.date,
-            owner: data.owner,
+            author: data.author,
             location: data.location,
             description: data.description,
             device: data.device,
@@ -47,6 +47,4 @@ export class PhotoService {
         return null;
       });
   }
-  
-  
 }

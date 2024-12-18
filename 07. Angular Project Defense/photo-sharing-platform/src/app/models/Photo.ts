@@ -4,7 +4,7 @@ export interface Photo {
   _id: any;
   name: String;
   date: String;
-  owner: String;
+  author: String;
   location: String;
   description?: String;
   device: String;

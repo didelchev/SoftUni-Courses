@@ -1,38 +1,22 @@
 @if (isLoading) {
-  <app-loader></app-loader>
+<app-loader></app-loader>
 }@else {
-  <div class="photo-card-container">
-    <div class="photo-card">
-      <div class="photo-image-wrapper">
-        <img [src]="photo.image" alt="{{ photo.name }}" class="photo-image" />
-      </div>
-      <div class="photo-content">
-        <h2 class="photo-title">{{ photo.name }}</h2>
-        <p class="photo-description">{{ photo.description }}</p>
-        <div class="photo-details">
-          <p><strong>Location:</strong> {{ photo.location }}</p>
-          <p><strong>Date Taken:</strong> {{ photo.date }}</p>
-          <p><strong>Owner:</strong> {{ photo.owner }}</p>
-          <p><strong>Device:</strong> {{ photo.device }}</p>
-        </div>
+<div class="photo-card-container">
+  <div class="photo-card">
+    <div class="photo-image-wrapper">
+      <img [src]="photo.image" alt="{{ photo.name }}" class="photo-image" />
+    </div>
+    <div class="photo-content">
+      <h2 class="photo-title">{{ photo.name }}</h2>
+      <p class="photo-description">{{ photo.description }}</p>
+      <div class="photo-details">
+        <p><strong>Location:</strong> {{ photo.location }}</p>
+        <p><strong>Date Taken:</strong> {{ photo.date }}</p>
+        <p><strong>Author:</strong> {{ photo.author }}</p>
+        <p><strong>Device:</strong> {{ photo.device }}</p>
       </div>
     </div>
   </div>
-  
+</div>
 
-
-
-
-  
-  
-  
-  
-  
 }
-
-
-
-
-  
-
-  

@@ -14,8 +14,7 @@ import { LoaderComponent } from '../../shared/loader/loader.component';
 })
 export class PictureComponent implements OnInit {
   photo: Photo | any;
-  isLoading : boolean = false;
-  
+  isLoading: boolean = false;
 
   constructor(
     private photoService: PhotoService,
@@ -23,13 +22,12 @@ export class PictureComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     const photoId = this.route.snapshot.params['photoId'];
-    this.isLoading =true
-    
-    this.photoService.getPhotoById(photoId)
-    .then((photo)=>{ this.photo = photo
-      console.log(photo?._id);
-      this.isLoading = false
-      
-    })
+    this.isLoading = true;
+
+    this.photoService.getPhotoById(photoId).then((photo) => {
+      this.photo = photo;
+      console.log(photo);
+      this.isLoading = false;
+    });
   }
 }

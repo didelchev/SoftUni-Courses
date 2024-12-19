@@ -22,7 +22,7 @@ export const routes: Routes = [
     path: 'explore',
     children: [
       { path: '', component: CatalogComponent },
-      { path: ':photoId/details', component: PictureComponent, canActivate: [AuthGuard]},
+      { path: ':photoId/details', component: PictureComponent},
       { path: ':photoId/details/edit', component: EditPhotoComponent, canActivate: [AuthGuard]},
     ],
   },

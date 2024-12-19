@@ -1,1 +1,112 @@
-<p>edit-photo works!</p>
+@if(photo){
+    <div class="add-photo-container">
+        <h1>Add a New Photo</h1>
+        <form class="photo-form" #form="ngForm" (ngSubmit)="updatePhoto(form)">
+          <!-- Title Input -->
+          <div class="form-group">
+            <label for="title">Photo Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Enter photo title"
+              [(ngModel)]="photo.name"
+              #inputTitle="ngModel"
+              required
+              minlength="10"
+            />
+            @if (inputTitle?.touched) {
+            <div>
+              @if (inputTitle?.errors?.['required']) {
+              <p class="error">Photo title is required !</p>
+              } @if (inputTitle?.errors?.['minlength']) {
+              <p class="error">Photo title must be at least 10 characters long !</p>
+              }
+            </div>
+            }
+          </div>
+          <!-- Location Input -->
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              placeholder="Enter photo location"
+              required
+              [(ngModel)]="photo.location"
+              #inputLocation="ngModel"
+            />
+            @if (inputLocation?.touched) {
+            <div>
+              @if (inputLocation?.errors?.['required']) {
+              <p class="error">Photo location is required !</p>
+              }
+            </div>
+            }
+          </div>
+          <!-- Device  -->
+          <div class="form-group">
+            <label for="device">Device:</label>
+            <input
+              type="text"
+              id="device"
+              name="device"
+              placeholder="Enter device name"
+              [(ngModel)]="photo.device"
+              #inputDevice="ngModel"
+      
+            />
+          </div>
+          <!-- Date -->
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input
+              type="text"
+              id="date"
+              name="date"
+              placeholder="Enter date name"
+              [(ngModel)]="photo.date"
+              #inputDate="ngModel"
+            />
+          </div>
+          
+          <!-- Image -->
+          <div class="form-group">
+            <label for="image">Image:</label>
+            <input
+              type="url"
+              id="image"
+              name="image"
+              placeholder="Enter image url"
+              [(ngModel)]="photo.image"
+              #inputImage="ngModel"
+            />
+          </div>
+      
+          <!-- Description Input -->
+          <div class="form-group">
+            <label for="description">Photo Description:</label>
+            <textarea
+              id="description"
+              placeholder="Enter a description for your photo"
+              name="description"
+              [(ngModel)]="photo.description"
+              #inputDescription="ngModel"
+            ></textarea>
+          </div>
+          
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="public"
+            [disabled]="form.invalid"
+            [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue' }"
+          >
+            Submit Photo
+          </button>
+        </form>
+      </div>
+}
+
+  

@@ -1,0 +1,113 @@
+/* General Container */
+.add-photo-container {
+    max-width: 700px;
+    margin: 1em auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    /* border: red 1px solid; */
+  }
+  
+  .add-photo-container h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  /* Form Styling */
+  .photo-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .photo-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  .photo-form input,
+  .photo-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .photo-form textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  .photo-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .photo-form button:hover {
+    background-color: #0043ff;
+  }
+  
+  /* Drag-and-Drop Upload Area */
+  .upload-area {
+    border: 2px dashed #aaa;
+    border-radius: 6px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .upload-area p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .upload-area span {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .upload-area:hover {
+    border-color: #007bff;
+  }
+  
+  /* Image Preview */
+  .image-preview {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ddd;
+    padding: 10px;
+    width: 670px;
+    height: 350px;
+    overflow: hidden;
+  }
+  
+  .image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  .image-preview p {
+    color: #777;
+  }
+  
+  .photo-form .error {
+    color: red;
+    font-style: italic;
+  }
+  

@@ -8,6 +8,8 @@ import {
   doc,
   getDoc,
   getDocs,
+  setDoc,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Photo } from '../models/Photo';
 import { FireAuthService } from './auth.service';
@@ -74,7 +76,20 @@ export class PhotoService {
       });
   }
 
-  // updatePhoto()
+  updatePhoto(photoId: string, updatedPhoto: Photo): Promise<void> {
+    const photoRef = doc(this.firestore, `Photos/${photoId}`);
+
+    // Remove _id field (Firestore manages the document ID)
+    const { _id, ...updateData } = updatedPhoto; // This ensures the _id is not included in the update
+
+    return updateDoc(photoRef, updateData)  // Update the document without the _id field
+      .then(() => {
+        console.log('Photo updated successfully');
+      })
+      .catch((error) => {
+        console.error('Error updating photo:', error);
+      });
+  }
 
 
   deletePhoto(photoId: string): Promise<void>{

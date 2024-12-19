@@ -29,7 +29,6 @@ export class UserService {
         email: userData.email,
         username: userData.username,
         uid: result.user?.uid, // Firebase-generated UID
-        createdAt: new Date(),
       });
 
       return result;

@@ -18,12 +18,42 @@
             ngModel
             #inputEmail="ngModel"
             required
+            [appEmail]="domains"
           />
         </div>
+        @if(inputEmail?.touched){
+        <div>
+          @if(inputEmail?.errors?.['required']){
+          <p class="error">Email address is required!</p>
+          } @if (inputEmail?.errors?.['emailValidator']){
+          <p class="error">Please enter a valid email address!</p>
+          }
+        </div>
+        }
         <div class="form-row-group">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" required />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="*****"
+            ngModel
+            #inputPassword="ngModel"
+            minlength="5"
+            required
+          />
         </div>
+
+        @if (inputPassword?.touched) {
+        <div>
+          @if (inputPassword?.errors?.['required']) {
+          <p class="error">Password is required</p>
+          } @if (inputPassword?.errors?.['minlength']) {
+          <p class="error">Password must be at least 4 characters</p>
+          }
+        </div>
+        }
+
         <button type="submit">Join</button>
         <p class="terms">
           By joining, you agree to the <a href="#">Terms</a> and

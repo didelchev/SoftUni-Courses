@@ -22,30 +22,150 @@
           Already have an account? <a routerLink="/login">Login</a>
         </p>
       </div>
-      <form>
+      <form [formGroup]="form" (ngSubmit)="register()">
         <div class="form-row">
           <div class="form-group-row">
             <label for="firstname">First name</label>
-            <input type="text" id="firstname" required />
+            <input
+              [class]="
+                isFiledTextMissing('firstName') || isNotMinLength
+                  ? 'input-error'
+                  : ''
+              "
+              type="text"
+              id="firstname"
+              placeholder="John"
+              formControlName="firstName"
+              required
+            />
+            @if(form.get('firstName')?.touched){
+            <div>
+              @if(form.get('firstName')?.errors?.['required']){
+              <p class="error">First name is required!</p>
+              } @if (form.get('firstName')?.errors?.['minlength']){
+              <p class="error">First name must be atleast 2 characters</p>
+              }
+            </div>
+            }
           </div>
+
           <div class="form-group-row">
             <label for="lastname">Last name</label>
-            <input type="text" id="lastname" required />
+            <input
+              [class]="
+                isFiledTextMissing('lastName') || isNotMinLength
+                  ? 'input-error'
+                  : ''
+              "
+              type="text"
+              id="lastname"
+              placeholder="Doe"
+              formControlName="lastName"
+              required
+            />
+            @if(form.get('lastName')?.touched){
+            <div>
+              @if(form.get('lastName')?.errors?.['required']){
+              <p class="error">Last name is required!</p>
+              } @if (form.get('lastName')?.errors?.['minlength']){
+              <p class="error">Last name must be atleast 2 characters</p>
+              }
+            </div>
+            }
           </div>
         </div>
         <div class="form-row-group">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" required />
+          <input
+            [class]="
+              isFiledTextMissing('email') || isEmailNotValid
+                ? 'input-error'
+                : ''
+            "
+            type="email"
+            name="email"
+            id="email"
+            placeholder="john.doe@gmail.com"
+            formControlName="email"
+            required
+          />
+          @if(form.get('email')?.touched){
+          <div>
+            @if(form.get('email')?.errors?.['required']){
+            <p class="error">Email is required!</p>
+            } @if (form.get('email')?.errors?.['emailValidator']){
+            <p class="error">Email is not valid</p>
+            }
+          </div>
+          }
         </div>
         <div class="form-row-group">
           <label for="username">Username</label>
-          <input type="text" name="username" id="username" required />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="johndoe123"
+            formControlName="username"
+            required
+          />
+          @if(form.get('username')?.touched){
+          <div>
+            @if(form.get('username')?.errors?.['required']){
+            <p class="error">Username is required!</p>
+            } @if (form.get('email')?.errors?.['minlength']){
+            <p class="error">Username is not valid</p>
+            }
+          </div>
+          }
         </div>
-        <div class="form-row-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" required />
+        <div formGroupName="passGroup">
+          <div class="form-row-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              formControlName="password"
+              placeholder="******"
+              required
+            />
+            @if(passGroup?.get('password')?.touched){
+            <div>
+              @if(passGroup?.get('password')?.errors?.['required']){
+              <p class="error">Password is required!</p>
+              } @if(passGroup?.get('password')?.errors?.['minlength']){
+              <p class="error">Password length must be minimum 5 characters!</p>
+              }
+            </div>
+            }
+          </div>
+          <div class="form-row-group">
+            <label for="rePassword">Repeat Password</label>
+            <input
+              type="password"
+              name="rePassword"
+              id="rePassword"
+              formControlName="rePassword"
+              placeholder="******"
+              required
+            />
+            @if (passGroup?.get('rePassword')?.touched) {}
+            <div>
+              @if (passGroup?.errors?.['matchPasswordsValidator'] ||
+              passGroup?.get('rePassword')?.errors?.['required']) {
+              <p class="error">Repeat Password does not match !</p>
+              }
+            </div>
+          </div>
         </div>
-        <button type="submit">Join</button>
+        <button
+          [disabled]="form.invalid"
+          type="submit"
+          [style]="{ backgroundColor: form.invalid ? 'grey' : '#000' }"
+        >
+          Join
+        </button>
         <p class="terms">
           By joining, you agree to the <a href="#">Terms</a> and
           <a href="#">Privacy Policy</a>.

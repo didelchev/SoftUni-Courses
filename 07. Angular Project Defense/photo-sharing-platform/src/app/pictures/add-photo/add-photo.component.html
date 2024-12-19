@@ -1,40 +1,109 @@
 <div class="add-photo-container">
-    <h1>Add a New Photo</h1>
-    <form class="photo-form">
-      <!-- Drag-and-Drop Upload Area -->
-      <div class="upload-area" id="upload-area">
-        <p>Drag and drop your photo here, or <span>browse</span></p>
-        <input type="file" id="photo" accept="image/*">
+  <h1>Add a New Photo</h1>
+  <form class="photo-form" #form="ngForm" (ngSubmit)="addPhoto(form)">
+    <!-- Title Input -->
+    <div class="form-group">
+      <label for="title">Photo Title:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        placeholder="Enter photo title"
+        ngModel
+        #inputTitle="ngModel"
+        required
+        minlength="10"
+      />
+      @if (inputTitle?.touched) {
+      <div>
+        @if (inputTitle?.errors?.['required']) {
+        <p class="error">Photo title is required !</p>
+        } @if (inputTitle?.errors?.['minlength']) {
+        <p class="error">Photo title must be at least 10 characters long !</p>
+        }
       </div>
+      }
+    </div>
+    <!-- Location Input -->
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        placeholder="Enter photo location"
+        required
+        ngModel
+        #inputLocation="ngModel"
+      />
+      @if (inputLocation?.touched) {
+      <div>
+        @if (inputLocation?.errors?.['required']) {
+        <p class="error">Photo location is required !</p>
+        }
+      </div>
+      }
+    </div>
+    <!-- Device  -->
+    <div class="form-group">
+      <label for="device">Device:</label>
+      <input
+        type="text"
+        id="device"
+        name="device"
+        placeholder="Enter device name"
+      />
+    </div>
 
-      <!-- Image Preview -->
+    <!-- Description Input -->
+    <div class="form-group">
+      <label for="description">Photo Description:</label>
+      <textarea
+        id="description"
+        placeholder="Enter a description for your photo"
+        name="description"
+      ></textarea>
+    </div>
+
+    <div class="upload-area" id="upload-area">
+      <p>Drag and drop your photo here, or <span>browse</span></p>
+      <input
+        type="file"
+        name="photo"
+        id="photo"
+        accept="image/*"
+        #inputPhoto="ngModel"
+        (change)="onFileSelected($event)"
+        ngModel
+        required
+      />
+      @if (inputPhoto?.touched) {
+      <div>
+        @if (inputPhoto?.errors?.['required']) {
+        <p class="error">Photo is required !</p>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="image-preview">
+      @if (previewImage) {
+      <img [src]="previewImage" alt="Image Preview" />
+      }@else {
       <div class="image-preview">
         <p>No image selected</p>
       </div>
+      }
+    </div>
 
-      <!-- Title Input -->
-      <div class="form-group">
-        <label for="title">Photo Title:</label>
-        <input type="text" id="title" placeholder="Enter photo title">
-      </div>
-      <!-- Location Input -->
-      <div class="form-group">
-        <label for="location">Location:</label>
-        <input type="text" id="location" placeholder="Enter photo location">
-      </div>
-      <!-- Device  -->
-      <div class="form-group">
-        <label for="device">Device:</label>
-        <input type="text" id="device" placeholder="Enter device name">
-      </div>
-
-      <!-- Description Input -->
-      <div class="form-group">
-        <label for="description">Photo Description:</label>
-        <textarea id="description" placeholder="Enter a description for your photo"></textarea>
-      </div>
-
-      <!-- Submit Button -->
-      <button type="button">Submit Photo</button>
-    </form>
-  </div>
+    <!-- Submit Button -->
+    <button
+      type="button"
+      class="public"
+      [disabled]="form.invalid"
+      [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue' }"
+    >
+      Submit Photo
+    </button>
+  </form>
+</div>

@@ -7,6 +7,7 @@ export function emailValidator(allowedDomains: string[]): ValidatorFn {
   return (control): ValidationErrors | null => {
     const email = control.value;
     const isEmailValid = email === '' || emailPattern.test(email);
+    console.log(isEmailValid);
     return isEmailValid ? null : { emailValidator: true };
   };
 }

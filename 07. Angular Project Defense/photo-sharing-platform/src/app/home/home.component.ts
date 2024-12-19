@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   async loadRandomPhotos() {
     try {
-      this.randomPhotos = await this.photoService.getRandomPhotos(3); // Fetch 3 random photos
+      this.randomPhotos = await this.photoService.getRandomPhotos(4); // Fetch 3 random photos
     } catch (error) {
       console.error('Error fetching random photos:', error);
     }

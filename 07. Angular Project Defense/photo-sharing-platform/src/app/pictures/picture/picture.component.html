@@ -4,17 +4,24 @@
 <div class="photo-card-container">
   <div class="photo-card">
     <div class="photo-image-wrapper">
-      <img [src]="photo.image" alt="{{ photo.name }}" class="photo-image" />
+      <img [src]="photo?.image" alt="{{ photo?.name }}" class="photo-image" />
     </div>
     <div class="photo-content">
-      <h2 class="photo-title">{{ photo.name }}</h2>
-      <p class="photo-description">{{ photo.description }}</p>
+      <h2 class="photo-title">{{ photo?.name }}</h2>
+      <p class="photo-description">{{ photo?.description }}</p>
       <div class="photo-details">
-        <p><strong>Location:</strong> {{ photo.location }}</p>
-        <p><strong>Date Taken:</strong> {{ photo.date }}</p>
-        <p><strong>Author:</strong> {{ photo.author }}</p>
-        <p><strong>Device:</strong> {{ photo.device }}</p>
+        <p><strong>Location:</strong> {{ photo?.location }}</p>
+        <p><strong>Published On:</strong> {{ photo?.date }}</p>
+        <p><strong>Author:</strong> {{ photo?.author }}</p>
+        <p><strong>Device:</strong> {{ photo?.device }}</p>
       </div>
+      @if (photo?.author === currentUserEmail) {
+        <div class="buttons">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+
+        </div>
+      }
     </div>
   </div>
 </div>

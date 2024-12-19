@@ -1,38 +1,41 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { PhotoService } from '../../services/firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-photo',
   standalone: true,
   imports: [FormsModule],
   templateUrl: './add-photo.component.html',
-  styleUrl: './add-photo.component.css',
+  styleUrls: ['./add-photo.component.css'], // Updated `styleUrls` syntax
 })
 export class AddPhotoComponent {
-  previewImage: string | ArrayBuffer | null = null;
-
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-
-      // Read the file
-      reader.onload = (e) => {
-        if (e.target?.result) {
-          this.previewImage = e.target.result; // Only set if not undefined
-        }
-      };
-
-      reader.readAsDataURL(file); // Convert file to base64
-    }
-  }
+  constructor(private photoService: PhotoService, private router: Router) {}
 
   addPhoto(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
+    if (form.valid) {
+      // Extract form values
+      const photoData = {
+        name: form.value.title,
+        location: form.value.location,
+        device: form.value.device || '',
+        date: form.value.date || '',
+        image: form.value.image || '',
+        description: form.value.description || ''
+      };
 
-    console.log(form.value);
+      // Call the service to add the photo
+      this.photoService.addPhoto(photoData)
+        .then(() => {
+          form.reset(); // Reset the form after successful submission
+          this.router.navigate(['/explore'])
+        })
+        .catch((error) => {
+          console.error('Error adding photo:', error);
+        });
+    } else {
+      console.error('Form is invalid');
+    }
   }
 }

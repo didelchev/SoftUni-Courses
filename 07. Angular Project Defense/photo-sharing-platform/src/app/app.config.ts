@@ -10,6 +10,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { evnironment } from '../env';
 import { routes } from './app.routes';
 import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideStorage } from '@angular/fire/storage';
+import { getStorage } from 'firebase/storage';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideFirebaseApp(() => initializeApp(evnironment.firebase)),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     provideAuth(() => getAuth())
   ],
 };

@@ -9,7 +9,7 @@
 
 /* Masonry items */
 .masonry-item {
-  margin-bottom: 15px; 
+  margin-bottom: 20px; 
   break-inside: avoid; 
 }
 
@@ -19,6 +19,7 @@
   /* border-radius: 8px;  */
   transition: transform 0.3s ease, filter 0.3s ease; /* Smooth hover effect */
   filter: grayscale();
+  margin-bottom: 15px;
 }
 
 .masonry-item img:hover {

@@ -87,6 +87,61 @@ body {
   margin: 5px 0;
 }
 
+
+
+
+
+button {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Edit Button */
+
+
+.edit-btn {
+  background-color: #4caf50; /* Green */
+  color: white;
+  margin-top: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #45a049; /* Slightly darker green */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-left: 10px;
+  margin-top: 10px;
+
+}
+
+.delete-btn:hover {
+  background-color: #e53935; /* Slightly darker red */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Disabled Button */
+button:disabled {
+  background-color: #cccccc; /* Gray for disabled */
+  color: #666666;
+  cursor: not-allowed;
+}
+
+/* Optional: Button container styling */
+.button-container {
+  margin-top: 10px;
+}
+
+
 /* Responsive design for small screens */
 @media (max-width: 768px) {
   .photo-card {

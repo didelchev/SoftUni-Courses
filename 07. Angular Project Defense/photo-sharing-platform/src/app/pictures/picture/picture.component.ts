@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Photo } from '../../models/Photo';
 import { PhotoService } from '../../services/firestore.service';
 import { LoaderComponent } from '../../shared/loader/loader.component';
+import { FireAuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-picture',
@@ -13,14 +14,24 @@ import { LoaderComponent } from '../../shared/loader/loader.component';
   styleUrl: './picture.component.css',
 })
 export class PictureComponent implements OnInit {
-  photo: Photo | any;
+  photo: Photo | null = null;
   isLoading: boolean = false;
+  currentUserEmail: string | null = null;
 
   constructor(
     private photoService: PhotoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: FireAuthService
   ) {}
+
+
   ngOnInit(): void {
+
+    const user = this.authService.getCurrentUser();
+    this.currentUserEmail = user?.email || null;
+
+
+
     const photoId = this.route.snapshot.params['photoId'];
     this.isLoading = true;
 

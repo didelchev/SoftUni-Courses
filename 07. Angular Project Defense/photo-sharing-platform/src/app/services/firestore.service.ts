@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
   Firestore,
+  addDoc,
   collection,
   doc,
   getDoc,
   getDocs,
 } from '@angular/fire/firestore';
 import { Photo } from '../models/Photo';
+import { FireAuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PhotoService {
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore, private authService: FireAuthService) {}
 
   getPhotos() {
     const photosRef = collection(this.firestore, 'photos'); // Reference to the 'photos' collection
@@ -47,4 +49,33 @@ export class PhotoService {
         return null;
       });
   }
-}
+
+  addPhoto(photoData: Omit<Photo, '_id'>): Promise<void> {
+    const photoRef = collection(this.firestore, 'Photos');
+
+    const user = this.authService.getCurrentUser();
+
+    if(!user){
+      return Promise.reject('User not authenticated')
+    }
+
+    const photoWithAuthor = {
+      ...photoData, author: user.email
+    }
+
+    return addDoc(photoRef, photoWithAuthor)
+      .then(() => {
+        console.log('Photo added successfully');
+      })
+      .catch((error) => {
+        console.error('Error adding photo:', error);
+        throw error; // Re-throw the error to allow further handling in the caller
+      });
+  }
+
+    
+  }
+
+  
+
+

@@ -52,6 +52,34 @@
         id="device"
         name="device"
         placeholder="Enter device name"
+        ngModel
+        #inputDevice="ngModel"
+
+      />
+    </div>
+    <!-- Date -->
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input
+        type="text"
+        id="date"
+        name="date"
+        placeholder="Enter date name"
+        ngModel
+        #inputDate="ngModel"
+      />
+    </div>
+    
+    <!-- Image -->
+    <div class="form-group">
+      <label for="image">Image:</label>
+      <input
+        type="url"
+        id="image"
+        name="image"
+        placeholder="Enter image url"
+        ngModel
+        #inputImage="ngModel"
       />
     </div>
 
@@ -62,43 +90,14 @@
         id="description"
         placeholder="Enter a description for your photo"
         name="description"
+        ngModel
+        #inputDescription="ngModel"
       ></textarea>
     </div>
-
-    <div class="upload-area" id="upload-area">
-      <p>Drag and drop your photo here, or <span>browse</span></p>
-      <input
-        type="file"
-        name="photo"
-        id="photo"
-        accept="image/*"
-        #inputPhoto="ngModel"
-        (change)="onFileSelected($event)"
-        ngModel
-        required
-      />
-      @if (inputPhoto?.touched) {
-      <div>
-        @if (inputPhoto?.errors?.['required']) {
-        <p class="error">Photo is required !</p>
-        }
-      </div>
-      }
-    </div>
-
-    <div class="image-preview">
-      @if (previewImage) {
-      <img [src]="previewImage" alt="Image Preview" />
-      }@else {
-      <div class="image-preview">
-        <p>No image selected</p>
-      </div>
-      }
-    </div>
-
+    
     <!-- Submit Button -->
     <button
-      type="button"
+      type="submit"
       class="public"
       [disabled]="form.invalid"
       [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue' }"

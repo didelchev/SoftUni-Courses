@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth, authState, createUserWithEmailAndPassword, sendPasswordResetEmail, 
-  signInWithEmailAndPassword, updateProfile, User, UserCredential } from '@angular/fire/auth';
+import { Auth, authState, createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, 
+  signInWithEmailAndPassword, signOut, updateProfile, User, UserCredential } from '@angular/fire/auth';
 import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 
 @Injectable({
@@ -66,4 +66,15 @@ export class FireAuthService {
     return this.user;
   }
 
+  async logout(): Promise<void> {
+    try {
+      const auth = getAuth();
+      await signOut(auth);  // Log out the user
+      console.log('User logged out successfully.');
+    } catch (error) {
+      console.error('Logout failed:', error);
+      throw error;
+    }
+
+}
 }

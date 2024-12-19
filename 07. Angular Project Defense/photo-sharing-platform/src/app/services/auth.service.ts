@@ -69,7 +69,7 @@ export class FireAuthService {
   async logout(): Promise<void> {
     try {
       const auth = getAuth();
-      await signOut(auth);  // Log out the user
+      await signOut(auth);  
       console.log('User logged out successfully.');
     } catch (error) {
       console.error('Logout failed:', error);

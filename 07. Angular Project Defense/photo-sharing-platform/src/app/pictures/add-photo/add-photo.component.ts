@@ -8,14 +8,13 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './add-photo.component.html',
-  styleUrls: ['./add-photo.component.css'], // Updated `styleUrls` syntax
+  styleUrls: ['./add-photo.component.css'], 
 })
 export class AddPhotoComponent {
   constructor(private photoService: PhotoService, private router: Router) {}
 
   addPhoto(form: NgForm) {
     if (form.valid) {
-      // Extract form values
       const photoData = {
         name: form.value.title,
         location: form.value.location,
@@ -25,10 +24,9 @@ export class AddPhotoComponent {
         description: form.value.description || ''
       };
 
-      // Call the service to add the photo
       this.photoService.addPhoto(photoData)
         .then(() => {
-          form.reset(); // Reset the form after successful submission
+          form.reset(); 
           this.router.navigate(['/explore'])
         })
         .catch((error) => {

@@ -91,18 +91,6 @@ export class RegisterComponent {
           .signUpWithEmailAndPassword(email, password, userDetails.firstName!, userDetails.lastName!, userDetails.username!)
           .then((userCredential) => {
             console.log('Registration successful:', userCredential);
-    
-            // Optionally, save additional details in Firestore (although it's already done in the service)
-            // this.authService
-            //   .saveUserDetails(userCredential.user.uid, userDetails)
-            //   .then(() => {
-            //     console.log('User details saved successfully');
-            //     this.router.navigate(['/login']);
-            //   })
-            //   .catch((error) => {
-            //     console.error('Failed to save user details:', error);
-            //   });
-  
             this.router.navigate(['/login']);
           })
           .catch((error) => {

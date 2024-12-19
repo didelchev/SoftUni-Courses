@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
   Firestore,
   addDoc,
+  arrayUnion,
   collection,
   deleteDoc,
   doc,
@@ -21,8 +22,8 @@ export class PhotoService {
   constructor(private firestore: Firestore, private authService: FireAuthService) {}
 
   getPhotos() {
-    const photosRef = collection(this.firestore, 'photos'); // Reference to the 'photos' collection
-    return getDocs(photosRef); // Fetch all documents in the collection
+    const photosRef = collection(this.firestore, 'photos'); 
+    return getDocs(photosRef); 
   }
 
   getPhotoById(photoId: string): Promise<Photo | null> {
@@ -31,9 +32,9 @@ export class PhotoService {
     return getDoc(photoRef)
       .then((docSnapshot) => {
         if (docSnapshot.exists()) {
-          const data = docSnapshot.data() as Photo; // Explicitly cast data to the Photo interface
+          const data = docSnapshot.data() as Photo; 
           return {
-            _id: docSnapshot.id, // Include the Firestore document ID
+            _id: docSnapshot.id, 
             name: data.name,
             date: data.date,
             author: data.author,
@@ -79,10 +80,9 @@ export class PhotoService {
   updatePhoto(photoId: string, updatedPhoto: Photo): Promise<void> {
     const photoRef = doc(this.firestore, `Photos/${photoId}`);
 
-    // Remove _id field (Firestore manages the document ID)
-    const { _id, ...updateData } = updatedPhoto; // This ensures the _id is not included in the update
+    const { _id, ...updateData } = updatedPhoto; 
 
-    return updateDoc(photoRef, updateData)  // Update the document without the _id field
+    return updateDoc(photoRef, updateData)  
       .then(() => {
         console.log('Photo updated successfully');
       })
@@ -99,17 +99,23 @@ export class PhotoService {
 
   async getRandomPhotos(count: number): Promise<Photo[]> {
     const photosRef = collection(this.firestore, 'Photos');
-    const snapshot = await getDocs(photosRef); // Fetch all photos
+    const snapshot = await getDocs(photosRef); 
     const allPhotos = snapshot.docs.map((doc) => ({
       _id: doc.id,
       ...doc.data(),
     })) as Photo[];
 
-    // Shuffle and select random photos
     const shuffledPhotos = allPhotos.sort(() => 0.5 - Math.random());
     return shuffledPhotos.slice(0, count);
   }
     
+
+  addComment(photoId: string, comment: { userId: string; username: string; content: string; timestamp: Date }): Promise<void> {
+    const photoRef = doc(this.firestore, `Photos/${photoId}`);
+    return updateDoc(photoRef, {
+      comments: arrayUnion(comment)
+    });
+  }
   }
 
   

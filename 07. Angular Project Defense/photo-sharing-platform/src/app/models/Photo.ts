@@ -9,4 +9,10 @@ export interface Photo {
   description?: String;
   device: String;
   image: String;
+  comments?: Array<{
+    userId: string; 
+    username: string; 
+    content: string; 
+    timestamp: Date; 
+  }>;
 }

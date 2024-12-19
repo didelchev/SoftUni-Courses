@@ -1,11 +1,9 @@
-/* Global Styles */
 .register-page {
   display: flex;
   width: 100%;
   height: 100vh;
 }
 
-/* Left Section */
 .left-section {
   flex: 1;
   background: url(https://images.unsplash.com/photo-1531944252668-83d381a30b26?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
@@ -45,7 +43,6 @@
   opacity: 0.8;
 }
 
-/* Right Section */
 .right-section {
   display: flex;
   flex: 1.3;
@@ -59,7 +56,6 @@
   max-width: 520px;
   height: fit-content;
   width: 100%;
-  /* margin-bottom: 10em; */
 }
 
 .form-container .form-headings {
@@ -104,7 +100,6 @@
   font-size: 14px;
 }
 
-/* Button  */
 .form-container button {
   width: 100%;
   margin-top: 1em;

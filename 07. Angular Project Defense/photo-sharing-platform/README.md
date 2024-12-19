@@ -1,27 +1,58 @@
-# PhotoSharingPlatform
+# Angular Photo Platform
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+## Project Overview
 
-## Development server
+The **Angular Photo Platform** is a web application where users can upload, view, and manage photos. It allows users to register, log in, and perform CRUD operations on photos, including uploading images, editing, deleting, and viewing photo details. The project uses Firebase for backend storage and authentication.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Used Frameworks and Libraries
 
-## Code scaffolding
+- **Angular**: The front-end framework used for building the user interface and handling routing.
+- **AngularFire**: The official library to integrate Firebase with Angular, used for authentication and Firestore (NoSQL) database interaction.
+- **Firebase**: Used for user authentication and storing photos.
+- **Firebase Authentication**: For handling user login and registration.
+- **Firestore**: Firebase's NoSQL database, used for storing photo data.
+- **Angular Forms**: Used for handling form validations and data binding.
+- **Angular Router**: For routing between different pages in the application.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Functionality
 
-## Build
+### Authentication
+- **Register**: Users can register with an email and password to create an account.
+- **Login**: Users can log in using their email and password.
+- **Logout**: Logged-in users can log out of the application.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Photo Management
+- **Add Photo**: Users can upload new photos with metadata, including title, location, device, date, description, and image URL.
+- **Edit Photo**: Users can edit their uploaded photos.
+- **Delete Photo**: Users can delete their uploaded photos.
+- **View Photo Details**: Users can click on a photo to view detailed information about it.
 
-## Running unit tests
+### User-Specific Actions
+- **Author-Only Buttons**: The Edit and Delete buttons are only visible to the user who uploaded the photo.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Architecture
 
-## Running end-to-end tests
+The application follows a modular architecture with the following key modules:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Authentication Module**: Handles user registration, login, and authentication.
+2. **Photo Module**: Manages photo-related functionality, including adding, viewing, editing, and deleting photos.
+3. **Routing Module**: Handles routing between different components and ensures that only authenticated users can access certain pages (e.g., adding, editing, or deleting photos).
+4. **Shared Module**: Includes shared components like loaders.
 
-## Further help
+## How to Run the Project
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 1. Clone the Repository
+`git clone https://github.com/your-repository/angular-photo-platform.git`
+`cd angular-photo-platform`
+
+### 2. Install Dependencies 
+`npm install`
+
+### 3. Run the application 
+`ng serve`
+
+### 4. Open the application
+Open the browser and navigate to `http://localhost:4200`
+
+
+

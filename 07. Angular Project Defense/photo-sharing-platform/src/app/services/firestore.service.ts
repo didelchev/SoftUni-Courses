@@ -91,11 +91,23 @@ export class PhotoService {
       });
   }
 
-
   deletePhoto(photoId: string): Promise<void>{
     const photoDoc = doc(this.firestore, `Photos/${photoId}`)
     return deleteDoc(photoDoc)
     
+  }
+
+  async getRandomPhotos(count: number): Promise<Photo[]> {
+    const photosRef = collection(this.firestore, 'Photos');
+    const snapshot = await getDocs(photosRef); // Fetch all photos
+    const allPhotos = snapshot.docs.map((doc) => ({
+      _id: doc.id,
+      ...doc.data(),
+    })) as Photo[];
+
+    // Shuffle and select random photos
+    const shuffledPhotos = allPhotos.sort(() => 0.5 - Math.random());
+    return shuffledPhotos.slice(0, count);
   }
     
   }

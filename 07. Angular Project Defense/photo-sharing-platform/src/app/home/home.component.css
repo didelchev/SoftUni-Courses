@@ -1,3 +1,4 @@
+/* Hero Section */
 .hero {
   background-image: url("https://images.unsplash.com/photo-1500630417200-63156e226754?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
@@ -5,6 +6,7 @@
   color: white;
   text-align: center;
   padding: 100px 20px;
+  /* height: 500px; */
 }
 
 .hero h1 {
@@ -39,33 +41,39 @@
   text-align: center;
 }
 
+.featured-photos h2 {
+  font-size: 1.7em;
+  margin-bottom: 1em;
+}
+
 .photo-gallery {
   display: flex;
-  gap: 20px;
+  gap: 80px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .photo-item {
   width: 300px;
+  height: 400px; /* Fixed size for photos */
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: ease-in-out 0.3s;
 }
 
 .photo-item img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the container proportionally */
 }
 
-.photo-item h3 {
-  font-size: 1.5rem;
-  margin-top: 10px;
+
+
+
+.photo-item:hover{
+  transform: scale(1.02);
 }
 
-.photo-item p {
-  font-size: 1rem;
-  color: #777;
-}
-
-/* About Section */
 .about {
   padding: 60px;
   background-color: #f4f4f4;
@@ -78,7 +86,6 @@
   color: #555;
 }
 
-/* How It Works Section */
 .how-it-works {
   padding: 60px 20px;
   text-align: center;
@@ -87,7 +94,7 @@
 .steps {
   display: flex;
   margin-top: 20px;
-  gap: 60px;
+  gap: 200px;
   justify-content: center;
 }
 

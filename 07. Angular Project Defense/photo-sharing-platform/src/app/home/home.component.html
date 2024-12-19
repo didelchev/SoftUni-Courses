@@ -14,25 +14,17 @@
 <section class="featured-photos">
   <h2>Explore Amazing Photos</h2>
   <div class="photo-gallery">
-    <div class="photo-item">
-      <img src="camera.jpg" alt="Featured Photo 1" />
-      <h3>Beautiful Nature</h3>
-      <p>
-        Discover stunning landscapes captured by photographers around the world.
-      </p>
-    </div>
-    <div class="photo-item">
-      <img src="camera.jpg" alt="Featured Photo 2" />
-      <h3>City Adventures</h3>
-      <p>
-        From bustling streets to quiet corners, find inspiring city photography.
-      </p>
-    </div>
-    <div class="photo-item">
-      <img src="camera.jpg" alt="Featured Photo 3" />
-      <h3>Travel Diaries</h3>
-      <p>Share your travel memories with the community.</p>
-    </div>
+    @if(randomPhotos.length > 0){
+      @for (photo of randomPhotos; track $index) {
+        <a  routerLink="/explore/{{ photo._id }}/details"   class="photo-item">
+          <img [src]="photo.image" alt="{{photo.name}}" />
+        </a>
+      }
+      
+    }@else {
+      <p>No photos to display.</p>
+    }
+    
   </div>
 </section>
 

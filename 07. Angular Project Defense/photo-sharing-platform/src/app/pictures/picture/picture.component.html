@@ -17,8 +17,8 @@
       </div>
       @if (photo?.author === currentUserEmail) {
         <div class="buttons">
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
+          <button  routerLink="/explore/{{photo?._id}}/details/edit" class="edit-btn">Edit</button>
+          <button class="delete-btn" (click)="deletePhoto(photo?._id)">Delete</button>
 
         </div>
       }

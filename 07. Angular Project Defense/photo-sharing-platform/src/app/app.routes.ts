@@ -6,6 +6,7 @@ import { PictureComponent } from './pictures/picture/picture.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditPhotoComponent } from './pictures/edit-photo/edit-photo.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,7 @@ export const routes: Routes = [
     children: [
       { path: '', component: CatalogComponent },
       { path: ':photoId/details', component: PictureComponent, canActivate: [AuthGuard]},
+      { path: ':photoId/details/edit', component: EditPhotoComponent, canActivate: [AuthGuard]},
     ],
   },
 

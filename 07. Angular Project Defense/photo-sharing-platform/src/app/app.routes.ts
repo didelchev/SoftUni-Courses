@@ -5,6 +5,7 @@ import { CatalogComponent } from './pictures/explore/explore.component';
 import { PictureComponent } from './pictures/picture/picture.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -20,9 +21,9 @@ export const routes: Routes = [
     path: 'explore',
     children: [
       { path: '', component: CatalogComponent },
-      { path: ':photoId/details', component: PictureComponent },
+      { path: ':photoId/details', component: PictureComponent, canActivate: [AuthGuard]},
     ],
   },
 
-  { path: 'add-photo', component: AddPhotoComponent },
+  { path: 'add-photo', component: AddPhotoComponent, canActivate: [AuthGuard] },
 ];

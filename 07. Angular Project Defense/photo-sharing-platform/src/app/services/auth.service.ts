@@ -1,40 +1,69 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { User } from '../models/User';
+import { Auth, authState, createUserWithEmailAndPassword, sendPasswordResetEmail, 
+  signInWithEmailAndPassword, updateProfile, User, UserCredential } from '@angular/fire/auth';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class UserService {
-  constructor(
-    private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore
-  ) {}
+export class FireAuthService {
+  private user: User | null = null;
 
-  // Register User
-  async registerUser(userData: any) {
+  get isLogged(): boolean {
+    return !!this.user;
+  }
+
+  constructor(private auth: Auth, private firestore: Firestore) {
+    this.listenToAuthStateChanges();
+  }
+
+  private listenToAuthStateChanges(): void {
+    authState(this.auth).subscribe((user: User | null) => {
+      this.user = user;
+    });
+  }
+
+  async signUpWithEmailAndPassword(
+    email: string, 
+    password: string,
+    firstName: string, 
+    lastName: string,
+    username: string
+  ): Promise<UserCredential> {
     try {
-      // Step 1: Create User in Firebase Authentication
-      const result = await this.afAuth.createUserWithEmailAndPassword(
-        userData.email,
-        userData.password
-      );
-
-      // Step 2: Store Additional User Details in Firestore
-      const userRef = this.firestore.collection('users').doc(result.user?.uid);
-      await userRef.set({
-        firstName: userData.firstname,
-        lastName: userData.lastname,
-        email: userData.email,
-        username: userData.username,
-        uid: result.user?.uid, // Firebase-generated UID
+      const cred = await createUserWithEmailAndPassword(this.auth, email, password);
+      await updateProfile(cred.user, {
+        displayName: `${firstName} ${lastName}`,
       });
 
-      return result;
+      const userRef = doc(this.firestore, `users/${cred.user.uid}`);
+      await setDoc(userRef, {
+        firstName,
+        lastName,
+        username,
+        email,
+        createdAt: new Date(),
+      });
+
+      return cred;
     } catch (error) {
-      console.error('Error during registration:', error);
+      console.error('Sign up failed:', error);
       throw error;
     }
   }
+
+  async loginWithEmailAndPassword(email: string, password: string): Promise<UserCredential> {
+    try {
+      const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
+      return userCredential;
+    } catch (error) {
+      console.error('Login failed:', error);
+      throw error;
+    }
+  }
+
+  getCurrentUser(): User | null {
+    return this.user;
+  }
+
 }

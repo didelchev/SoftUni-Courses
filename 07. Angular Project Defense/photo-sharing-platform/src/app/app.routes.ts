@@ -7,6 +7,7 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { EditPhotoComponent } from './pictures/edit-photo/edit-photo.component';
+import { PageNotFoundComponent } from './error/error.component';
 
 export const routes: Routes = [
   {
@@ -28,5 +29,7 @@ export const routes: Routes = [
   },
 
   { path: 'add-photo', component: AddPhotoComponent, canActivate: [AuthGuard] },
+  { path: '404', component: PageNotFoundComponent},
+  { path: '**', redirectTo: '/404'}
   
 ];

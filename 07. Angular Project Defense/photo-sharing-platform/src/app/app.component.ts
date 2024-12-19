@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd){
-        const hideNavbarRoutes = ['/register','/login'];
+        const hideNavbarRoutes = ['/register','/login', '/404'];
         this.showNavbar = !hideNavbarRoutes.includes(event.urlAfterRedirects);
       }
     })

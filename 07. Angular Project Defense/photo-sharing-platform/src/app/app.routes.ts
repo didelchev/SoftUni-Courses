@@ -26,4 +26,5 @@ export const routes: Routes = [
   },
 
   { path: 'add-photo', component: AddPhotoComponent, canActivate: [AuthGuard] },
+  
 ];

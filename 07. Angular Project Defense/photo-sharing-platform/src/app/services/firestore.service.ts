@@ -4,6 +4,7 @@ import {
   Firestore,
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -73,6 +74,14 @@ export class PhotoService {
       });
   }
 
+  // updatePhoto()
+
+
+  deletePhoto(photoId: string): Promise<void>{
+    const photoDoc = doc(this.firestore, `Photos/${photoId}`)
+    return deleteDoc(photoDoc)
+    
+  }
     
   }
 

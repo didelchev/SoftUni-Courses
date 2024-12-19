@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { DOMAINS } from '../../constants';
 import { emailValidator } from '../../utils/email.validator';
 import { matchPasswordsValidator } from '../../utils/match-password.validator';
+import { FireAuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +19,9 @@ import { matchPasswordsValidator } from '../../utils/match-password.validator';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
+  router = inject(Router)
+  authService = inject(FireAuthService);
+
   form = new FormGroup({
     firstName: new FormControl('', [
       Validators.required,
@@ -72,10 +76,68 @@ export class RegisterComponent {
   }
 
   register() {
-    if (this.form.invalid) {
-      return;
+    if (this.form.valid) {
+      const email = this.form.value.email;
+      const password = this.form.get('passGroup.password')?.value; // Access nested control
+  
+      const userDetails = {
+        firstName: this.form.value.firstName,
+        lastName: this.form.value.lastName,
+        username: this.form.value.username,
+      };
+  
+      if (email && password) {
+        this.authService
+          .signUpWithEmailAndPassword(email, password, userDetails.firstName!, userDetails.lastName!, userDetails.username!)
+          .then((userCredential) => {
+            console.log('Registration successful:', userCredential);
+    
+            // Optionally, save additional details in Firestore (although it's already done in the service)
+            // this.authService
+            //   .saveUserDetails(userCredential.user.uid, userDetails)
+            //   .then(() => {
+            //     console.log('User details saved successfully');
+            //     this.router.navigate(['/login']);
+            //   })
+            //   .catch((error) => {
+            //     console.error('Failed to save user details:', error);
+            //   });
+  
+            this.router.navigate(['/login']);
+          })
+          .catch((error) => {
+            console.error('Registration failed:', error);
+          });
+      }
+    } else {
+      this.form.markAllAsTouched(); // Show validation errors
     }
-
-    console.log(this.form.value);
   }
+  
+  
+  
 }
+
+
+
+
+// this.authService
+//           .signUpWithEmailAndPassword(email, password)
+//           .then((userCredential) => {
+//             const userId = userCredential.user.uid; // Get the user ID from the registered user
+            
+//             // Save additional user details to Firestore
+//             this.authService
+//               .saveUserDetails(userId, userDetails)
+//               .then(() => {
+//                 console.log('User details saved successfully.');
+//                 this.router.navigate(['/login']); // Redirect after saving details
+//               })
+//               .catch((error) => {
+//                 console.error('Failed to save user details:', error);
+//               });
+//           })
+//           .catch((error) => {
+//             console.error('Registration failed:', error);
+//           });
+//       }

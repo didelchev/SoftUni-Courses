@@ -1,13 +1,28 @@
-import { ValidationErrors, ValidatorFn } from '@angular/forms';
+// import { ValidatorFn } from '@angular/forms';
 
-export function emailValidator(allowedDomains: string[]): ValidatorFn {
-  const domainsPattern = allowedDomains.join('|');
-  const emailPattern = new RegExp(`^[a-zA-Z0-9._+-]{5,}@(${domainsPattern})$`);
+// export function emailValidator(domains: string[]): ValidatorFn {
+//   const domainStr = domains.join('|');
+//   const regExp = new RegExp(`[A-Za-z0-9]{6,}@gmail\.(${domainStr})`);
 
-  return (control): ValidationErrors | null => {
-    const email = control.value;
-    const isEmailValid = email === '' || emailPattern.test(email);
-    console.log(isEmailValid);
-    return isEmailValid ? null : { emailValidator: true };
+//   return (control) => {
+//     const isInvalid = control.value === '' || regExp.test(control.value);
+//     return isInvalid ? null : { emailValidator: true };
+//   };
+// }
+
+import { ValidatorFn } from '@angular/forms';
+
+export function emailValidator(domains: string[]): ValidatorFn {
+  const domainStr = domains.join('|');
+  const regExp = new RegExp(`^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.(${domainStr})$`);
+
+  return (control) => {
+    if (!control.value) {
+      return null; // If empty, no validation error
+    }
+
+    const isInvalid = !regExp.test(control.value);
+    return isInvalid ? { emailValidator: true } : null;
   };
 }
+
